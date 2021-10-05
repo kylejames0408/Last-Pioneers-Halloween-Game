@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerScript : CharacterScript
 {
-    [SerializeField]
-    public float moveSpeed = 2.0f;
-
     public Rigidbody2D body;
     //publi Animator animation;
 

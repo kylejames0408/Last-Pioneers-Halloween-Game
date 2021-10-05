@@ -21,12 +21,15 @@ public class InteractObject : MonoBehaviour, IInteractable
         xDifference = player.transform.position.x - transform.position.x;
         yDifference = player.transform.position.y - transform.position.y;
 
+        //Debug.Log(xDifference);
+        //Debug.Log(yDifference);
+
         // So these values will have to be changed once the two things get actual sprites. Also could probably be managed from a game manager? Not sure tho...
-        if(xDifference > -.5 && xDifference < .5) //Making sure the player x is within .5 units from the thisObject x
+        if (xDifference > -.5 && xDifference < .5) //Making sure the player x is within .5 units from the thisObject x
         {
             if (yDifference > -.5 && yDifference < .5) //Making sure the player y is within .5 units from the thisObject y
             {
-                Debug.Log("This is like close enough to interact I guess.");
+                //Debug.Log("This is like close enough to interact I guess.");
             }
         }
 
