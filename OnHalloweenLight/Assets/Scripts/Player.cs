@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Player : Character
 {
+    float moveSpeed = 2.0f;
+
+    public Rigidbody2D body;
+    //publi Animator animation;
+
+    Vector2 mov;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +22,25 @@ public class Player : Character
     {
 
         //This will actually move the player
-        float yInput = Input.GetAxis("Vertical");
-        float xInput = Input.GetAxis("Horizontal");
-        transform.Translate(xInput * 10f * Time.deltaTime, yInput * 10f * Time.deltaTime, 0f);
+        //float yInput = Input.GetAxis("Vertical");
+        //float xInput = Input.GetAxis("Horizontal");
+        //transform.Translate(xInput * 10f * Time.deltaTime, yInput * 10f * Time.deltaTime, 0f);
 
         //This is what locks the player on the screen. I'm not sure how needed this will be but might as well keep it for now.
-        Vector3 position = transform.position;
-        position.y = Mathf.Clamp(position.y, -5, 5);
-        position.x = Mathf.Clamp(position.x, -15, 15);
-        transform.position = position;
+        //Vector3 position = transform.position;
+        //position.y = Mathf.Clamp(position.y, -5, 5);
+        //position.x = Mathf.Clamp(position.x, -15, 15);
+        //transform.position = position;
+
+        mov.x = Input.GetAxisRaw("Horizontal");
+        mov.y = Input.GetAxisRaw("Vertical");
+
+        //animator stuff go here
+        //setFloat reminder
+    }
+
+    void FixedUpdate()
+    {
+        body.MovePosition(body.position + mov * moveSpeed * Time.fixedDeltaTime);
     }
 }
