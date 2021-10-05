@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character
+public class PlayerScript : CharacterScript
 {
-    float moveSpeed = 2.0f;
+    [SerializeField]
+    public float moveSpeed = 2.0f;
 
     public Rigidbody2D body;
     //publi Animator animation;
@@ -14,7 +15,7 @@ public class Player : Character
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -42,5 +43,20 @@ public class Player : Character
     void FixedUpdate()
     {
         body.MovePosition(body.position + mov * moveSpeed * Time.fixedDeltaTime);
+
+        // Flip the Character:
+        Vector2 playerScale = transform.localScale;
+
+        if (mov.x < 0)
+        {
+            playerScale.x = -1;
+        }
+        
+        if (mov.x > 0)
+        {
+            playerScale.x = 1;
+        }
+
+        transform.localScale = playerScale;
     }
 }

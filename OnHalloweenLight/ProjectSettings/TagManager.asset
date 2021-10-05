@@ -7,6 +7,7 @@ TagManager:
   - Lantern
   - NPC
   - InteractObject
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2498051135
+    locked: 0
+  - name: Midground
+    uniqueID: 4266287661
+    locked: 0
+  - name: Foreground
+    uniqueID: 973437133
+    locked: 0
+  - name: Interactables
+    uniqueID: 3830230043
+    locked: 0
+  - name: Player
+    uniqueID: 1002041163
+    locked: 0
+  - name: UI
+    uniqueID: 1520366509
     locked: 0

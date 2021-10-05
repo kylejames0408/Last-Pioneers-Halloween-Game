@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractObject : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Player player;
+    [SerializeField] private GameObject player;
     private float xDifference;
     private float yDifference;
 
@@ -12,7 +12,7 @@ public class InteractObject : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
