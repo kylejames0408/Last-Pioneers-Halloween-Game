@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Lantern : InteractObject, IInteractable
 {
-
     public GameObject playerHand;
     GameObject player;
 
     Vector2 playerHandPos;
 
-    float lanternSpeed;
+    /// <summary>
+    /// isPlaced - If it's on the ground at that moment or not.
+    /// canGrab - If the player is in touching grabbable range. 
+    /// </summary>
     bool isPlaced = false;
     bool canGrab = false;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start by grabbing the player gameObject
+    /// Set the handPos to the value
+    /// 
+    /// Disable the collider2D for the lantern so it doesn't push the player.
+    /// </summary>
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -24,7 +31,9 @@ public class Lantern : InteractObject, IInteractable
         this.GetComponent<BoxCollider2D>().enabled = false;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// FixedUpdate is called once per FPS frame which is locked at 60.
+    /// </summary>
     void FixedUpdate()
     {
         //smooth transition looks bad
@@ -41,11 +50,24 @@ public class Lantern : InteractObject, IInteractable
         }
     }
 
+    /// <summary>
+    /// Update is called once per frame based on your computer's
+    /// FPS rendering ability (could be more or less or equal to 60)
+    /// 
+    /// Constantly check for collision and what to do
+    /// </summary>
     void Update()
     {
         DoSomething();
     }
 
+    /// <summary>
+    /// If the space bar is pressed and the lantern isn't placed yet, place the lantern
+    /// y position - 0.30f on the ground.
+    /// 
+    /// If the space bar is pressed, and is in collision (can be picked up) range, then 
+    /// pick up the lantern and have it follow the player movement again.
+    /// </summary>
     public override void DoSomething()
     {
         if (Input.GetKeyDown("space"))
@@ -70,16 +92,28 @@ public class Lantern : InteractObject, IInteractable
         }
     }
 
+    /// <summary>
+    /// If the collision is with the player, set the canGrab to true on the first hit.
+    /// </summary>
+    /// <param name="collision">Collision with the object touching it</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Player") ;
+        if (collision.collider.tag == "Player")
         {
             canGrab = true;
         }
     }
 
+    /// <summary>
+    /// If the collision exited (not touching the player anymore), set the canGrab 
+    /// back to false since you are not in range to touch anymore.
+    /// </summary>
+    /// <param name="collision">Collision with the object leaving touch range</param>
     private void OnCollisionExit2D(Collision2D collision)
     {
-        canGrab = !canGrab;
+        if (collision.collider.tag == "Player")
+        {
+            canGrab = !canGrab;
+        }
     }
 }

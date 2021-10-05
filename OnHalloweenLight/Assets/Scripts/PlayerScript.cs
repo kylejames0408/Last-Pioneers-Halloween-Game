@@ -39,6 +39,7 @@ public class PlayerScript : CharacterScript
 
     void FixedUpdate()
     {
+        //Move the rigidbody2d based on the current position, axis, moveSpeed and deltaTime
         body.MovePosition(body.position + mov * moveSpeed * Time.fixedDeltaTime);
 
         // Flip the Character:
