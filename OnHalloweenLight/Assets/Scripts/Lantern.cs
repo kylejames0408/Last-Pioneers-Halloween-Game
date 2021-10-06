@@ -6,6 +6,7 @@ public class Lantern : InteractObject, IInteractable
 {
     public GameObject playerHand;
     GameObject player;
+    PlayerScript playerScript;
 
     Vector2 playerHandPos;
 
@@ -13,8 +14,8 @@ public class Lantern : InteractObject, IInteractable
     /// isPlaced - If it's on the ground at that moment or not.
     /// canGrab - If the player is in touching grabbable range. 
     /// </summary>
-    bool isPlaced = false;
-    bool canGrab = false;
+    public bool isPlaced = true;
+    bool canGrab = true;
 
     /// <summary>
     /// Start by grabbing the player gameObject
@@ -24,11 +25,13 @@ public class Lantern : InteractObject, IInteractable
     /// </summary>
     void Start()
     {
+        //saves references to both base player object and the script attached to it
         player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerScript>();
+
         playerHandPos = new Vector2(playerHand.transform.position.x, playerHand.transform.position.y - 0.7f);
 
-        transform.position = playerHandPos;
-        this.GetComponent<BoxCollider2D>().enabled = false;
+        this.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     /// <summary>
@@ -72,9 +75,11 @@ public class Lantern : InteractObject, IInteractable
     {
         if (Input.GetKeyDown("space"))
         {
-            if(!isPlaced)
+            //checks to make sure lantern is not placed, or the player is not close enough to a stand to place it on that
+            if(!isPlaced && !playerScript.touchingStand)
             {
                 isPlaced = true;
+                playerScript.heldLantern = null;
                 print("latern placed");
                 this.GetComponent<BoxCollider2D>().enabled = true;
 
@@ -86,6 +91,7 @@ public class Lantern : InteractObject, IInteractable
                 {
                     this.GetComponent<BoxCollider2D>().enabled = false;
                     isPlaced = false;
+                    playerScript.heldLantern = this;
                     print("latern picked up");
                 }
             }

@@ -9,10 +9,20 @@ public class PlayerScript : CharacterScript
 
     Vector2 mov;
 
+    //variable, getter and setter for the players currently held lantern
+    public Lantern heldLantern;
+    public Lantern HeldLantern
+    {
+        get { return heldLantern;}
+        set { heldLantern = value;}
+    }
+
+    public bool touchingStand;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        heldLantern = null;
     }
 
     // Update is called once per frame
@@ -39,6 +49,7 @@ public class PlayerScript : CharacterScript
 
     void FixedUpdate()
     {
+  
         //Move the rigidbody2d based on the current position, axis, moveSpeed and deltaTime
         body.MovePosition(body.position + mov * moveSpeed * Time.fixedDeltaTime);
 
@@ -57,4 +68,32 @@ public class PlayerScript : CharacterScript
 
         transform.localScale = playerScale;
     }
+
+
+
+    /// <summary>
+    /// If the collision is with a lantern stand, set the touchingStand to true on the first hit.
+    /// </summary>
+    /// <param name="collision">Collision with the object touching it</param>
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "LanternStand")
+        {
+            touchingStand = true;
+        }
+    }
+
+    /// <summary>
+    /// If the collision exited (not touching the lantern stand anymore), set the touchingStand 
+    /// back to false since you are not in range to touch anymore.
+    /// </summary>
+    /// <param name="collision">Collision with the object leaving touch range</param>
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "LanternStand")
+        {
+            touchingStand = !touchingStand;
+        }
+    }
+
 }
