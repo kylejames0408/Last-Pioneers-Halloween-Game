@@ -27,7 +27,6 @@ public class Lantern : InteractObject, IInteractable
         //saves references to both base player object and the script attached to it
         playerScript = player.GetComponent<PlayerScript>();
 
-        playerHandPos = new Vector2(playerHand.transform.position.x, playerHand.transform.position.y - 0.7f);
 
         this.GetComponent<BoxCollider2D>().enabled = true;
         base.isLantern = true;
@@ -81,6 +80,7 @@ public class Lantern : InteractObject, IInteractable
                 isPlaced = true;
                 playerScript.heldLantern = null;
                 print("latern placed");
+                canGrab = true;
                 this.GetComponent<BoxCollider2D>().enabled = true;
 
                 Vector2 placePos = new Vector2(playerHandPos.x, playerHandPos.y - 0.30f);
@@ -91,6 +91,7 @@ public class Lantern : InteractObject, IInteractable
                 {
                     this.GetComponent<BoxCollider2D>().enabled = false;
                     isPlaced = false;
+                    canGrab = false;
                     playerScript.heldLantern = this;
                     print("latern picked up");
                 }
