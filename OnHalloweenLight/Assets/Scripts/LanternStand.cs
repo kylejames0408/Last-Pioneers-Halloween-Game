@@ -16,7 +16,7 @@ public class LanternStand : InteractObject, IInteractable
     /// canGrab - If the player is in touching grabbable range. 
     /// player - The player.
     /// </summary>
-    bool hasLantern = false;
+    public bool hasLantern = false;
     bool canGrab = false;
 
     /// <summary>
