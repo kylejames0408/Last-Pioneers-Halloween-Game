@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 796850634}
+  lantern: {fileID: 1040149318}
 --- !u!1001 &479741491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -426,6 +427,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1040149318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3928592918064862078, guid: 05b1d80cc7c13914198f7ee56b8e87f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4872021871170037209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &1045879119 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 2456361121069834794, guid: 1e95049eaee24dd40a5f8b66721fdf01,
@@ -558,6 +565,11 @@ PrefabInstance:
       propertyPath: playerHand
       value: 
       objectReference: {fileID: 517801535}
+    - target: {fileID: 605911126853540679, guid: 05b1d80cc7c13914198f7ee56b8e87f3,
+        type: 3}
+      propertyPath: lantern
+      value: 
+      objectReference: {fileID: 1040149318}
     - target: {fileID: 3928592918064862078, guid: 05b1d80cc7c13914198f7ee56b8e87f3,
         type: 3}
       propertyPath: m_Name

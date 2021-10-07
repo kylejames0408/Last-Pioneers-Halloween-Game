@@ -5,7 +5,6 @@ using UnityEngine;
 public class Lantern : InteractObject, IInteractable
 {
     public GameObject playerHand;
-    GameObject player;
     PlayerScript playerScript;
 
     Vector2 playerHandPos;
@@ -16,7 +15,7 @@ public class Lantern : InteractObject, IInteractable
     /// </summary>
     public bool isPlaced = true;
     bool canGrab = true;
-
+   
     /// <summary>
     /// Start by grabbing the player gameObject
     /// Set the handPos to the value
@@ -26,12 +25,13 @@ public class Lantern : InteractObject, IInteractable
     void Start()
     {
         //saves references to both base player object and the script attached to it
-        player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerScript>();
 
         playerHandPos = new Vector2(playerHand.transform.position.x, playerHand.transform.position.y - 0.7f);
 
         this.GetComponent<BoxCollider2D>().enabled = true;
+        base.isLantern = true;
+        base.sprite = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>

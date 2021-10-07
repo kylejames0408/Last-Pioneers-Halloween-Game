@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class LanternStand : InteractObject, IInteractable
 {
-    //references to player, player script, and lantern on stand
-    GameObject player;
+    //references to player script, and lantern on stand
     PlayerScript playerScript;
     Lantern currentLantern;
 
@@ -15,12 +14,12 @@ public class LanternStand : InteractObject, IInteractable
     /// <summary>
     /// hasLantern - If a lantern is present on the stand
     /// canGrab - If the player is in touching grabbable range. 
+    /// player - The player.
     /// </summary>
     bool hasLantern = false;
     bool canGrab = false;
 
     /// <summary>
-    /// Start by grabbing the player gameObject
     /// Set the handPos to the value
     /// 
     /// Disable the collider2D for the lantern so it doesn't push the player.
@@ -28,9 +27,10 @@ public class LanternStand : InteractObject, IInteractable
     void Start()
     {
         //initalize stand
-        player = GameObject.FindWithTag("Player");
         playerScript = player.GetComponent<PlayerScript>();
         currentLantern = null;
+
+        base.sprite = GetComponent<SpriteRenderer>();
     }
 
    
@@ -44,6 +44,8 @@ public class LanternStand : InteractObject, IInteractable
     void Update()
     {
         DoSomething();
+        base.InLanternRange();
+
     }
 
     /// <summary>
