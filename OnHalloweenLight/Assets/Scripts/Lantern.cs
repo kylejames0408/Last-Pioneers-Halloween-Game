@@ -14,7 +14,7 @@ public class Lantern : InteractObject, IInteractable
     /// canGrab - If the player is in touching grabbable range. 
     /// </summary>
     public bool isPlaced = true;
-    bool canGrab = true;
+    public bool canGrab = false;
    
     /// <summary>
     /// Start by grabbing the player gameObject
@@ -27,10 +27,13 @@ public class Lantern : InteractObject, IInteractable
         //saves references to both base player object and the script attached to it
         playerScript = player.GetComponent<PlayerScript>();
 
+        canGrab = false;
 
         this.GetComponent<BoxCollider2D>().enabled = true;
         base.isLantern = true;
         base.sprite = GetComponent<SpriteRenderer>();
+
+        GameManager.roomLanterns.Add(this);
     }
 
     /// <summary>
