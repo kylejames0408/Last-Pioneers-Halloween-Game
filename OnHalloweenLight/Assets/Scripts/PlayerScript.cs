@@ -23,6 +23,9 @@ public class PlayerScript : CharacterScript
     void Start()
     {
         heldLantern = null;
+
+        //sets this player as the current one in game manager
+        GameManager.player = this;
     }
 
     // Update is called once per frame

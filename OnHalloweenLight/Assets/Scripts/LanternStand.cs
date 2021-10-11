@@ -6,8 +6,7 @@ using UnityEngine;
 public class LanternStand : InteractObject, IInteractable
 {
     //references to player script, and lantern on stand
-    PlayerScript playerScript;
-    Lantern currentLantern;
+    public Lantern currentLantern;
 
 
 
@@ -27,7 +26,6 @@ public class LanternStand : InteractObject, IInteractable
     void Start()
     {
         //initalize stand
-        playerScript = player.GetComponent<PlayerScript>();
         currentLantern = null;
 
         base.sprite = GetComponent<SpriteRenderer>();
@@ -44,7 +42,7 @@ public class LanternStand : InteractObject, IInteractable
     void Update()
     {
         DoSomething();
-        base.InLanternRange();
+        //base.InLanternRange();
 
     }
 
@@ -60,12 +58,12 @@ public class LanternStand : InteractObject, IInteractable
             if (!hasLantern)
             {
                 //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand
-                if(playerScript.heldLantern !=null && canGrab)
+                if(GameManager.player.heldLantern !=null && canGrab)
                 {
                     //set the current lantern to the players one and remove the lantern from the player
-                    currentLantern = playerScript.heldLantern;
+                    currentLantern = GameManager.player.heldLantern;
                     currentLantern.isPlaced = true;
-                    playerScript.heldLantern = null;
+                    GameManager.player.heldLantern = null;
                     hasLantern = true;
 
 
@@ -78,10 +76,10 @@ public class LanternStand : InteractObject, IInteractable
             else
             {
                 //checks if the player is close enough to the stand and they have nothing in their hand
-                if (canGrab && playerScript.heldLantern == null)
+                if (canGrab && GameManager.player.heldLantern == null)
                 {
                     //removes lantern from stand and puts it in player hand
-                    playerScript.heldLantern = currentLantern;
+                    GameManager.player.heldLantern = currentLantern;
                     currentLantern.isPlaced = false;
                     currentLantern = null;
                     hasLantern = false;

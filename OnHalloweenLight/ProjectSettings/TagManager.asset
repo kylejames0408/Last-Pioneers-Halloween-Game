@@ -9,6 +9,7 @@ TagManager:
   - InteractObject
   - Wall
   - LanternStand
+  - Hand
   layers:
   - Default
   - TransparentFX
