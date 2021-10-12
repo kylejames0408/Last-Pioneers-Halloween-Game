@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff55cca326e3f6345accfec3cd0884fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3.75
   body: {fileID: 2456361121069834794}
   heldLantern: {fileID: 0}
   touchingStand: 0

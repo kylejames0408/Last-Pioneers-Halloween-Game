@@ -45,16 +45,11 @@ public class Lantern : InteractObject, IInteractable
 
         if(!isPlaced)
         {
-            
-
-            transform.position = playerHandPos;
-
-
-
-
 
             playerHandPos.x = GameManager.playerHand.transform.position.x;
-            playerHandPos.y = GameManager.playerHand.transform.position.y-0.7f;
+            playerHandPos.y = GameManager.playerHand.transform.position.y - 0.7f;
+
+            transform.position = playerHandPos;
         }
     }
 
