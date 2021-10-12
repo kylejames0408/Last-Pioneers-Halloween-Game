@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingWall : MonoBehaviour,ILanternTrigger
+public class MovingWall :  LanternTrigger
 {
-    [SerializeField] protected LanternStand trigerStand;
-
 
     // Start is called before the first frame update
     void Start()
@@ -19,17 +17,29 @@ public class MovingWall : MonoBehaviour,ILanternTrigger
         doLanternTrigger();
     }
 
-    public void doLanternTrigger()
+    override public void doLanternTrigger()
     {
-        if(trigerStand.hasLantern)
+
+        if(base.checkStands())
         {
-            this.GetComponent<BoxCollider2D>().enabled = false;
-            this.GetComponent<SpriteRenderer>().enabled = false;
+            Disable();
         }
         else
         {
-            this.GetComponent<BoxCollider2D>().enabled = true;
-            this.GetComponent<SpriteRenderer>().enabled = true;
+            Enable();
         }
+    }
+
+
+    void Enable()
+    {
+        this.GetComponent<BoxCollider2D>().enabled = true;
+        this.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
+    void Disable()
+    {
+        this.GetComponent<BoxCollider2D>().enabled = false;
+        this.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

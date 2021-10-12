@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5929741304159254129}
   m_Layer: 0
   m_Name: PlayerHoldLatern
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,6 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   body: {fileID: 2456361121069834794}
+  heldLantern: {fileID: 0}
+  touchingStand: 0
 --- !u!61 &2055554225321264283
 BoxCollider2D:
   m_ObjectHideFlags: 0
