@@ -58,12 +58,12 @@ public class LanternStand : InteractObject, IInteractable
             if (!hasLantern)
             {
                 //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand
-                if(GameManager.player.heldLantern !=null && canGrab)
+                if(LevelManager.player.heldLantern !=null && canGrab)
                 {
                     //set the current lantern to the players one and remove the lantern from the player
-                    currentLantern = GameManager.player.heldLantern;
+                    currentLantern = LevelManager.player.heldLantern;
                     currentLantern.isPlaced = true;
-                    GameManager.player.heldLantern = null;
+                    LevelManager.player.heldLantern = null;
                     hasLantern = true;
 
 
@@ -76,10 +76,10 @@ public class LanternStand : InteractObject, IInteractable
             else
             {
                 //checks if the player is close enough to the stand and they have nothing in their hand
-                if (canGrab && GameManager.player.heldLantern == null)
+                if (canGrab && LevelManager.player.heldLantern == null)
                 {
                     //removes lantern from stand and puts it in player hand
-                    GameManager.player.heldLantern = currentLantern;
+                    LevelManager.player.heldLantern = currentLantern;
                     currentLantern.isPlaced = false;
                     currentLantern = null;
                     hasLantern = false;

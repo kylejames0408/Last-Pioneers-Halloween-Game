@@ -30,7 +30,7 @@ public class Lantern : InteractObject, IInteractable
         base.isLantern = true;
         base.sprite = GetComponent<SpriteRenderer>();
 
-        GameManager.roomLanterns.Add(this);
+        LevelManager.roomLanterns.Add(this);
     }
 
     /// <summary>
@@ -46,8 +46,8 @@ public class Lantern : InteractObject, IInteractable
         if(!isPlaced)
         {
 
-            playerHandPos.x = GameManager.playerHand.transform.position.x;
-            playerHandPos.y = GameManager.playerHand.transform.position.y - 0.7f;
+            playerHandPos.x = LevelManager.playerHand.transform.position.x;
+            playerHandPos.y = LevelManager.playerHand.transform.position.y - 0.7f;
 
             transform.position = playerHandPos;
         }
@@ -76,10 +76,10 @@ public class Lantern : InteractObject, IInteractable
         if (Input.GetKeyDown("space"))
         {
             //checks to make sure lantern is not placed, or the player is not close enough to a stand to place it on that
-            if(!isPlaced && !GameManager.player.touchingStand)
+            if(!isPlaced && !LevelManager.player.touchingStand)
             {
                 isPlaced = true;
-                GameManager.player.heldLantern = null;
+                LevelManager.player.heldLantern = null;
                 print("latern placed");
                 canGrab = true;
                 this.GetComponent<BoxCollider2D>().enabled = true;
@@ -93,7 +93,7 @@ public class Lantern : InteractObject, IInteractable
                     this.GetComponent<BoxCollider2D>().enabled = false;
                     isPlaced = false;
                     canGrab = false;
-                    GameManager.player.heldLantern = this;
+                    LevelManager.player.heldLantern = this;
                     print("latern picked up");
                 }
             }
