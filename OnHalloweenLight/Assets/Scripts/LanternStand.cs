@@ -16,7 +16,7 @@ public class LanternStand : InteractObject, IInteractable
     /// player - The player.
     /// </summary>
     public bool hasLantern = false;
-    bool canGrab = false;
+    public bool canGrab = false;
 
     /// <summary>
     /// Set the handPos to the value
@@ -29,9 +29,10 @@ public class LanternStand : InteractObject, IInteractable
         currentLantern = null;
 
         base.sprite = GetComponent<SpriteRenderer>();
+        LevelManager.roomStands.Add(this);
     }
 
-   
+
 
     /// <summary>
     /// Update is called once per frame based on your computer's
@@ -41,9 +42,9 @@ public class LanternStand : InteractObject, IInteractable
     /// </summary>
     void Update()
     {
+
         DoSomething();
         //base.InLanternRange();
-
     }
 
     /// <summary>
@@ -55,15 +56,17 @@ public class LanternStand : InteractObject, IInteractable
     {
         if (Input.GetKeyDown("space"))
         {
+            //Debug.Log(canGrab);
+
             if (!hasLantern)
             {
                 //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand
-                if(LevelManager.player.heldLantern !=null && canGrab)
+                if(LevelManager.playerScript.heldLantern !=null && canGrab && LevelManager.playerScript.frameCooldown == 0)
                 {
                     //set the current lantern to the players one and remove the lantern from the player
-                    currentLantern = LevelManager.player.heldLantern;
+                    currentLantern = LevelManager.playerScript.heldLantern;
                     currentLantern.isPlaced = true;
-                    LevelManager.player.heldLantern = null;
+                    LevelManager.playerScript.heldLantern = null;
                     hasLantern = true;
 
 
@@ -71,48 +74,78 @@ public class LanternStand : InteractObject, IInteractable
                     Vector2 placePos = new Vector2(this.transform.position.x, this.transform.position.y + 1f);
                     currentLantern.transform.position = placePos;
                     print("lantern placed on stand");
+
+                    LevelManager.playerScript.frameCooldown = 5;
                 }
             }
             else
             {
                 //checks if the player is close enough to the stand and they have nothing in their hand
-                if (canGrab && LevelManager.player.heldLantern == null)
+                if (canGrab && LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0)
                 {
                     //removes lantern from stand and puts it in player hand
-                    LevelManager.player.heldLantern = currentLantern;
+                    LevelManager.playerScript.heldLantern = currentLantern;
                     currentLantern.isPlaced = false;
                     currentLantern = null;
                     hasLantern = false;
 
                     print("latern picked up from stand");
+
+                    LevelManager.playerScript.frameCooldown = 5;
                 }
             }
         }
     }
 
     /// <summary>
-    /// If the collision is with the player, set the canGrab to true on the first hit.
+    /// If the sprite of the player (+ a pickup area) is touching the lantern stand
     /// </summary>
-    /// <param name="collision">Collision with the object touching it</param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    /// <param name="player">The player</param>
+    /// <returns></returns>
+    public bool PickUpCollision(GameObject player)
     {
-        if (collision.collider.tag == "Player")
-        {
-            canGrab = true;
-        }
-    }
+        // get extents of player +/- some number that I change all the time
+        float playerMinX = player.transform.position.x - player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
+        playerMinX -= .25f;
+        float playerMaxX = player.transform.position.x + player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
+        playerMaxX += .25f;
+        float playerMinY = player.transform.position.y - player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
+        playerMinY -= .25f;
+        float playerMaxY = player.transform.position.y + player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
+        playerMaxY += .25f;
 
-    /// <summary>
-    /// If the collision exited (not touching the player anymore), set the canGrab 
-    /// back to false since you are not in range to touch anymore.
-    /// </summary>
-    /// <param name="collision">Collision with the object leaving touch range</param>
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Player")
+        // get horizontal extents of lantern
+        //Should technically account for offsets but whatever
+        float standMinX = this.transform.position.x - this.GetComponent<BoxCollider2D>().size.x;
+        float standMaxX = this.transform.position.x + this.GetComponent<BoxCollider2D>().size.x;
+        float standMinY = this.transform.position.y - this.GetComponent<BoxCollider2D>().size.y;
+        float standMaxY = this.transform.position.y + this.GetComponent<BoxCollider2D>().size.y;
+
+        // checks if one sprite is completely seperated from the other
+        if (playerMaxX < standMinX) //player is completely to the left of stand
         {
-            canGrab = !canGrab;
+            //Debug.Log("player too far to the left");
+            return false;
         }
+
+        if (standMaxX < playerMinX) //stand is completely to the left of player
+        {
+            //Debug.Log("player too far to the right");
+            return false;
+        }
+        if (playerMaxY < standMinY) //player is completely below stand
+        {
+            //Debug.Log("player too far down");
+            return false;
+        }
+        if (standMaxY < playerMinY) //stand is completely below player
+        {
+            //Debug.Log(standMaxY);
+            //Debug.Log(playerMinY);
+            return false;
+        }
+        //Debug.Log("Should be able to grab");
+        return true; // the only remaining alternative is that they are colliding
     }
 }
 

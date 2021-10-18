@@ -19,23 +19,22 @@ public class PlayerScript : CharacterScript
 
     public bool touchingStand;
 
+    //If you were in range to pickup AND place on a stand then you would to both on the same frame. This fixes that
+    public int frameCooldown;
+
     // Start is called before the first frame update
     void Start()
     {
         heldLantern = null;
+        frameCooldown = 0;
 
         //sets this player as the current one in level manager
-        LevelManager.player = this;
+        LevelManager.playerScript = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //This will actually move the player
-        //float yInput = Input.GetAxis("Vertical");
-        //float xInput = Input.GetAxis("Horizontal");
-        //transform.Translate(xInput * 10f * Time.deltaTime, yInput * 10f * Time.deltaTime, 0f);
 
         //This is what locks the player on the screen. I'm not sure how needed this will be but might as well keep it for now.
         //Vector3 position = transform.position;
@@ -45,6 +44,11 @@ public class PlayerScript : CharacterScript
 
         mov.x = Input.GetAxisRaw("Horizontal");
         mov.y = Input.GetAxisRaw("Vertical");
+
+        if(frameCooldown > 0)
+        {
+            frameCooldown--;
+        }
 
         //animator stuff go here
         //setFloat reminder
@@ -74,6 +78,7 @@ public class PlayerScript : CharacterScript
 
 
 
+    /*
     /// <summary>
     /// If the collision is with a lantern stand, set the touchingStand to true on the first hit.
     /// </summary>
@@ -98,5 +103,5 @@ public class PlayerScript : CharacterScript
             touchingStand = !touchingStand;
         }
     }
-
+    */
 }

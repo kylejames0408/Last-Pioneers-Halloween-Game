@@ -6,9 +6,12 @@ public class LevelManager : MonoBehaviour
 {
     //global list of lanterns
     public static List<Lantern> roomLanterns;
+    public static List<LanternStand> roomStands;
+
 
     //global variables for the player and their hand object
-    public static PlayerScript player;
+    public static PlayerScript playerScript;
+    public static GameObject player;
     public static GameObject playerHand;
 
 
@@ -17,14 +20,26 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         roomLanterns = new List<Lantern>();
+        roomStands = new List<LanternStand>();
+
 
         //doing this with tagging was easier than doing it in the inspector
+        player = GameObject.FindWithTag("Player");
         playerHand = GameObject.FindWithTag("Hand");
     }
 
     // Update is called once per frame
     void Update()
     {
+        playerScript.touchingStand = false;
 
+        for(int i = 0; i < roomStands.Count; i++)
+        {
+            roomStands[i].canGrab = roomStands[i].PickUpCollision(LevelManager.player);
+            if(roomStands[i].canGrab)
+            {
+                playerScript.touchingStand = true;
+            }
+        }
     }
 }

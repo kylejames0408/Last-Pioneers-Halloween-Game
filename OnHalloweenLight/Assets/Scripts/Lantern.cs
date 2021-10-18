@@ -61,6 +61,8 @@ public class Lantern : InteractObject, IInteractable
     /// </summary>
     void Update()
     {
+        canGrab = PickUpCollision(LevelManager.player);
+
         DoSomething();
     }
 
@@ -76,25 +78,30 @@ public class Lantern : InteractObject, IInteractable
         if (Input.GetKeyDown("space"))
         {
             //checks to make sure lantern is not placed, or the player is not close enough to a stand to place it on that
-            if(!isPlaced && !LevelManager.player.touchingStand)
+            if(!isPlaced && !LevelManager.playerScript.touchingStand && LevelManager.playerScript.frameCooldown == 0)
             {
                 isPlaced = true;
-                LevelManager.player.heldLantern = null;
+                LevelManager.playerScript.heldLantern = null;
                 print("latern placed");
                 canGrab = true;
                 this.GetComponent<BoxCollider2D>().enabled = true;
 
                 Vector2 placePos = new Vector2(playerHandPos.x, playerHandPos.y - 0.30f);
                 transform.position = placePos;
-            } else
+
+                LevelManager.playerScript.frameCooldown = 5;
+            } 
+            else
             {
-                if(canGrab)
+                if(canGrab && !LevelManager.playerScript.touchingStand && LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0)
                 {
                     this.GetComponent<BoxCollider2D>().enabled = false;
                     isPlaced = false;
                     canGrab = false;
-                    LevelManager.player.heldLantern = this;
+                    LevelManager.playerScript.heldLantern = this;
                     print("latern picked up");
+
+                    LevelManager.playerScript.frameCooldown = 5;
                 }
             }
         }
@@ -108,7 +115,8 @@ public class Lantern : InteractObject, IInteractable
     {
         if (collision.collider.tag == "Player")
         {
-            canGrab = true;
+            //this.GetComponent<BoxCollider2D>().enabled = false;
+            //Experimenting with allowing a player to move through it. I'm willing to refer to other's expertise with this...
         }
     }
 
@@ -121,7 +129,56 @@ public class Lantern : InteractObject, IInteractable
     {
         if (collision.collider.tag == "Player")
         {
-            canGrab = !canGrab;
+            //this.GetComponent<BoxCollider2D>().enabled = true;
         }
+    }
+
+    /// <summary>
+    /// If the sprite of the player (+ a pickup area) is touching the lantern
+    /// </summary>
+    /// <param name="player">The player</param>
+    /// <returns></returns>
+    public bool PickUpCollision(GameObject player)
+    {
+        // get extents of player +/- 5
+        float playerMinX = player.transform.position.x - player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
+        playerMinX -= .25f;
+        float playerMaxX = player.transform.position.x + player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
+        playerMaxX += .25f;
+        float playerMinY = player.transform.position.y - player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
+        playerMinY -= .25f;
+        float playerMaxY = player.transform.position.y + player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
+        playerMaxY += .25f;
+
+        // get extents of lantern
+        //Should technically account for offsets but whatever
+        float lanternMinX = this.transform.position.x - this.GetComponent<BoxCollider2D>().size.x;
+        float lanternMaxX = this.transform.position.x + this.GetComponent<BoxCollider2D>().size.x;
+        float lanternMinY = this.transform.position.y - this.GetComponent<BoxCollider2D>().size.y;
+        float lanternMaxY = this.transform.position.y + this.GetComponent<BoxCollider2D>().size.y;
+
+        // checks if one sprite is completely seperated from the other
+        if (playerMaxX < lanternMinX) //player is completely to the left of lantern
+        {
+            //Debug.Log("playerMaxX < lanternMinX");
+            return false;
+        }
+            
+        if (lanternMaxX < playerMinX) //lantern is completely to the left of player
+        {
+            //Debug.Log("lanternMaxX < playerMinX");
+            return false;
+        }
+        if (playerMaxY < lanternMinY) //player is completely below lantern
+        {
+            //Debug.Log("playerMaxY < lanternMinY");
+            return false;
+        }
+        if (lanternMaxY < playerMinY) //lantern is completely below player
+        {
+            //Debug.Log("lanternMaxY < playerMinY");
+            return false;
+        }
+        return true; // the only remaining alternative is that they are colliding
     }
 }
