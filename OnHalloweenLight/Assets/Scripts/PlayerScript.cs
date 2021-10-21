@@ -11,6 +11,9 @@ public class PlayerScript : CharacterScript
 
     //variable, getter and setter for the players currently held lantern
     public Lantern heldLantern;
+
+    SpriteRenderer sprite;
+
     public Lantern HeldLantern
     {
         get { return heldLantern; }
@@ -32,6 +35,8 @@ public class PlayerScript : CharacterScript
         LevelManager.playerScript = this;
         animationRef.SetBool("noLantern", true);
         animationRef.SetBool("isPickUpDropOff", false);
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -54,6 +59,9 @@ public class PlayerScript : CharacterScript
 
         //animator stuff go here
         //setFloat reminder
+
+        sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f);
+
     }
 
     void FixedUpdate()
@@ -87,18 +95,6 @@ public class PlayerScript : CharacterScript
 
         transform.localScale = playerScale;
     }
-    public void PickUp()
-    {
-        animationRef.SetBool("pickingUp", false);
-    }
-
-    public void DropOff()
-    {
-        animationRef.SetBool("droppingOff", false);
-    }
-
-
-
 
 
     /*

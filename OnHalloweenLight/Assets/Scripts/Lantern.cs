@@ -14,7 +14,9 @@ public class Lantern : InteractObject, IInteractable
     public bool canGrab = false;
 
     public GameObject player;
-   
+
+    SpriteRenderer sprite;
+
     /// <summary>
     /// Start by grabbing the player gameObject
     /// Set the handPos to the value
@@ -34,6 +36,8 @@ public class Lantern : InteractObject, IInteractable
 
         LevelManager.roomLanterns.Add(this);
         player.GetComponent<PlayerScript>().animationRef.SetBool("isPickUpDropOff", false);
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -76,6 +80,8 @@ public class Lantern : InteractObject, IInteractable
         }
 
         DoSomething();
+
+        sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f);
     }
 
     /// <summary>

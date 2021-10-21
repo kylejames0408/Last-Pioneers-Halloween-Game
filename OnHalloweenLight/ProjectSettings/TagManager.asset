@@ -53,14 +53,11 @@ TagManager:
   - name: Midground
     uniqueID: 4266287661
     locked: 0
+  - name: Objects
+    uniqueID: 1002041163
+    locked: 0
   - name: Foreground
     uniqueID: 973437133
-    locked: 0
-  - name: Interactables
-    uniqueID: 3830230043
-    locked: 0
-  - name: Player
-    uniqueID: 1002041163
     locked: 0
   - name: UI
     uniqueID: 1520366509
