@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Artwork.png">
+	<!-- Created with Adobe Animate version 15.2.0.66 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Arm0000" x="356" y="10" width="77" height="76"/>
+	<SubTexture name="Body0000" x="10" y="10" width="166" height="194"/>
+	<SubTexture name="Collar0000" x="196" y="131" width="193" height="48"/>
+	<SubTexture name="EyeLeft0000" x="409" y="249" width="19" height="35"/>
+	<SubTexture name="Lantern0000" x="409" y="106" width="38" height="64"/>
+	<SubTexture name="Leaf0000" x="365" y="199" width="24" height="32"/>
+	<SubTexture name="PumpkinNoStem0000" x="196" y="10" width="140" height="101"/>
+	<SubTexture name="Shadow0000" x="10" y="224" width="282" height="52"/>
+	<SubTexture name="Stem0000" x="409" y="190" width="53" height="39"/>
+	<SubTexture name="String0000" x="453" y="10" width="29" height="28"/>
+	<SubTexture name="glowCircle0000" x="312" y="199" width="33" height="44"/>
+</TextureAtlas>

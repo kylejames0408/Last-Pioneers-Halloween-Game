@@ -12,6 +12,8 @@ public class Lantern : InteractObject, IInteractable
     /// </summary>
     public bool isPlaced = true;
     public bool canGrab = false;
+
+    public GameObject player;
    
     /// <summary>
     /// Start by grabbing the player gameObject
@@ -31,6 +33,7 @@ public class Lantern : InteractObject, IInteractable
         base.sprite = GetComponent<SpriteRenderer>();
 
         LevelManager.roomLanterns.Add(this);
+        player.GetComponent<PlayerScript>().animationRef.SetBool("isPickUpDropOff", false);
     }
 
     /// <summary>
@@ -96,6 +99,9 @@ public class Lantern : InteractObject, IInteractable
                 this.GetComponent<BoxCollider2D>().enabled = true;
 
                 Vector2 placePos = new Vector2(playerHandPos.x, playerHandPos.y - 0.30f);
+                player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
+                player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", true);
+                player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", false);
                 transform.position = placePos;
 
                 LevelManager.playerScript.frameCooldown = 5;
@@ -108,6 +114,9 @@ public class Lantern : InteractObject, IInteractable
                     isPlaced = false;
                     canGrab = false;
                     LevelManager.playerScript.heldLantern = this;
+                    player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
+                    player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", true);
+                    player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", false);
                     print("latern picked up");
 
                     LevelManager.playerScript.frameCooldown = 5;

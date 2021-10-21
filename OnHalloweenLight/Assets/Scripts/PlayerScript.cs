@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : CharacterScript
 {
     public Rigidbody2D body;
-    //publi Animator animation;
+    public Animator animationRef;
 
     Vector2 mov;
 
@@ -13,8 +13,8 @@ public class PlayerScript : CharacterScript
     public Lantern heldLantern;
     public Lantern HeldLantern
     {
-        get { return heldLantern;}
-        set { heldLantern = value;}
+        get { return heldLantern; }
+        set { heldLantern = value; }
     }
 
     public bool touchingStand;
@@ -30,6 +30,8 @@ public class PlayerScript : CharacterScript
 
         //sets this player as the current one in level manager
         LevelManager.playerScript = this;
+        animationRef.SetBool("noLantern", true);
+        animationRef.SetBool("isPickUpDropOff", false);
     }
 
     // Update is called once per frame
@@ -63,6 +65,16 @@ public class PlayerScript : CharacterScript
         // Flip the Character:
         Vector2 playerScale = transform.localScale;
 
+        if(mov.x == 0)
+        {
+            animationRef.SetBool("isWalking", false);
+            //Debug.Log("not walking");
+        } else
+        {
+            animationRef.SetBool("isWalking", true);
+            //Debug.Log("is walking");
+        }
+
         if (mov.x < 0)
         {
             playerScale.x = -1;
@@ -75,6 +87,17 @@ public class PlayerScript : CharacterScript
 
         transform.localScale = playerScale;
     }
+    public void PickUp()
+    {
+        animationRef.SetBool("pickingUp", false);
+    }
+
+    public void DropOff()
+    {
+        animationRef.SetBool("droppingOff", false);
+    }
+
+
 
 
 

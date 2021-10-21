@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5698c5c644d5d468477f815cd14d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  lantern: {fileID: 0}
   isPlaced: 1
   canGrab: 0
+  player: {fileID: 6602422969488916977, guid: 1e95049eaee24dd40a5f8b66721fdf01, type: 3}
