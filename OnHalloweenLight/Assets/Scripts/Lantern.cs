@@ -63,6 +63,15 @@ public class Lantern : InteractObject, IInteractable
     {
         canGrab = PickUpCollision(LevelManager.player);
 
+        if (!isPlaced)
+        {
+
+            playerHandPos.x = LevelManager.playerHand.transform.position.x;
+            playerHandPos.y = LevelManager.playerHand.transform.position.y - 0.7f;
+
+            transform.position = playerHandPos;
+        }
+
         DoSomething();
     }
 
