@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     gameState = GameState.Menu; // escape to menu (for now)
+                    SceneManager.LoadScene(sceneName: "Menu");
                 }
                 break;
         }
