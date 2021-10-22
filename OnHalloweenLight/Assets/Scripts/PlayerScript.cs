@@ -60,7 +60,7 @@ public class PlayerScript : CharacterScript
         //animator stuff go here
         //setFloat reminder
 
-        sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f);
+        sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f)+14;
 
     }
 

@@ -13,7 +13,6 @@ public class Lantern : InteractObject, IInteractable
     public bool isPlaced = true;
     public bool canGrab = false;
 
-    public GameObject player;
 
     SpriteRenderer sprite;
 
@@ -30,12 +29,12 @@ public class Lantern : InteractObject, IInteractable
 
         canGrab = false;
 
-        this.GetComponent<BoxCollider2D>().enabled = true;
+        this.GetComponent<BoxCollider2D>().enabled = false;
         base.isLantern = true;
         base.sprite = GetComponent<SpriteRenderer>();
 
         LevelManager.roomLanterns.Add(this);
-        player.GetComponent<PlayerScript>().animationRef.SetBool("isPickUpDropOff", false);
+        LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("isPickUpDropOff", false);
 
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -102,12 +101,12 @@ public class Lantern : InteractObject, IInteractable
                 LevelManager.playerScript.heldLantern = null;
                 print("latern placed");
                 canGrab = true;
-                this.GetComponent<BoxCollider2D>().enabled = true;
+                this.GetComponent<BoxCollider2D>().enabled = false;
 
                 Vector2 placePos = new Vector2(playerHandPos.x, playerHandPos.y - 0.30f);
-                player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
-                player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", true);
-                player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", false);
+                LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
+                LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", true);
+                LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", false);
                 transform.position = placePos;
 
                 LevelManager.playerScript.frameCooldown = 5;
@@ -120,9 +119,9 @@ public class Lantern : InteractObject, IInteractable
                     isPlaced = false;
                     canGrab = false;
                     LevelManager.playerScript.heldLantern = this;
-                    player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
-                    player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", true);
-                    player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", false);
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", true);
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", false);
                     print("latern picked up");
 
                     LevelManager.playerScript.frameCooldown = 5;
