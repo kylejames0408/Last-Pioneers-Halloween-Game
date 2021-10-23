@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public static GameObject playerHand;
 
     public static GameObject textBox;
+    public static GameObject pauseMenu;
 
 
 
@@ -30,6 +31,10 @@ public class LevelManager : MonoBehaviour
         playerHand = GameObject.FindWithTag("Hand");
 
         textBox = GameObject.FindWithTag("TextBox");
+        pauseMenu = GameObject.FindWithTag("PauseMenu");
+
+        pauseMenu.SetActive(false);
+
     }
 
     // Update is called once per frame

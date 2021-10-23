@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - LanternStand
   - Hand
+  - TextBox
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

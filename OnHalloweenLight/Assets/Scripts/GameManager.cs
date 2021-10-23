@@ -8,7 +8,7 @@ public enum GameState { Menu, Game ,Pause,Talking};
 public class GameManager : MonoBehaviour
 {
     // Fields
-    public static GameState gameState;
+    [SerializeField] public static GameState gameState;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +33,25 @@ public class GameManager : MonoBehaviour
             case GameState.Game:
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
+                    LevelManager.pauseMenu.SetActive(true);
                     gameState = GameState.Pause; // escape to menu (for now)
                    
+                }
+                break;
+
+            case GameState.Pause:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+
+
+                    SceneManager.LoadScene(sceneName:"Menu");
+
+                }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    LevelManager.pauseMenu.SetActive(false);
+                    gameState = GameState.Game;
+
                 }
                 break;
         }
