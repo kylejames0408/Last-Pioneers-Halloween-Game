@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { Menu, Game };
+public enum GameState { Menu, Game ,Pause,Talking};
 
 public class GameManager : MonoBehaviour
 {
     // Fields
-    public GameState gameState;
+    public static GameState gameState;
 
     // Start is called before the first frame update
     void Start()
     {
         // Set the gameState to be the menu
-        gameState = GameState.Menu;
+        gameState = GameState.Game;
     }
 
     // Update is called once per frame
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
             case GameState.Game:
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    gameState = GameState.Menu; // escape to menu (for now)
-                    SceneManager.LoadScene(sceneName: "Menu");
+                    gameState = GameState.Pause; // escape to menu (for now)
+                   
                 }
                 break;
         }
@@ -42,6 +42,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+       // DontDestroyOnLoad(this.gameObject);
     }
 }

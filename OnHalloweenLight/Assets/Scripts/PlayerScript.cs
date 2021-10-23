@@ -42,25 +42,50 @@ public class PlayerScript : CharacterScript
     // Update is called once per frame
     void Update()
     {
-
-        //This is what locks the player on the screen. I'm not sure how needed this will be but might as well keep it for now.
-        //Vector3 position = transform.position;
-        //position.y = Mathf.Clamp(position.y, -5, 5);
-        //position.x = Mathf.Clamp(position.x, -15, 15);
-        //transform.position = position;
-
-        mov.x = Input.GetAxisRaw("Horizontal");
-        mov.y = Input.GetAxisRaw("Vertical");
-
-        if(frameCooldown > 0)
+        switch (GameManager.gameState)
         {
-            frameCooldown--;
+            case GameState.Menu:
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+
+                }
+                break;
+            case GameState.Game:
+
+
+                //This is what locks the player on the screen. I'm not sure how needed this will be but might as well keep it for now.
+                //Vector3 position = transform.position;
+                //position.y = Mathf.Clamp(position.y, -5, 5);
+                //position.x = Mathf.Clamp(position.x, -15, 15);
+                //transform.position = position;
+
+                mov.x = Input.GetAxisRaw("Horizontal");
+                mov.y = Input.GetAxisRaw("Vertical");
+
+                if (frameCooldown > 0)
+                {
+                    frameCooldown--;
+                }
+
+                //animator stuff go here
+                //setFloat reminder
+
+                sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f) + 14;
+
+
+                break;
+
+            case GameState.Talking:
+
+                mov = new Vector2(0, 0);
+
+                break;
+
+            case GameState.Pause:
+                mov = new Vector2(0, 0);
+                break;
         }
 
-        //animator stuff go here
-        //setFloat reminder
-
-        sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f)+14;
 
     }
 

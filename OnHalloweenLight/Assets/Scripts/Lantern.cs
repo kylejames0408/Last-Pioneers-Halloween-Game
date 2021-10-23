@@ -14,7 +14,7 @@ public class Lantern : InteractObject, IInteractable
     public bool canGrab = false;
 
 
-    SpriteRenderer sprite;
+    //SpriteRenderer sprite;
 
     /// <summary>
     /// Start by grabbing the player gameObject

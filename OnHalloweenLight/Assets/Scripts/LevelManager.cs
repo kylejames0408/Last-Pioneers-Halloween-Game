@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     public static GameObject player;
     public static GameObject playerHand;
 
+    public static GameObject textBox;
+
 
 
     // Start is called before the first frame update
@@ -26,6 +28,8 @@ public class LevelManager : MonoBehaviour
         //doing this with tagging was easier than doing it in the inspector
         player = GameObject.FindWithTag("Player");
         playerHand = GameObject.FindWithTag("Hand");
+
+        textBox = GameObject.FindWithTag("TextBox");
     }
 
     // Update is called once per frame
