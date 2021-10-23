@@ -35,6 +35,7 @@ public class LevelManager : MonoBehaviour
 
         pauseMenu.SetActive(false);
 
+
     }
 
     // Update is called once per frame
@@ -50,5 +51,11 @@ public class LevelManager : MonoBehaviour
                 playerScript.touchingStand = true;
             }
         }
+
+
+
+
+
+
     }
 }

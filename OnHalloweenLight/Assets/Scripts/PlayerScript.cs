@@ -72,10 +72,6 @@ public class PlayerScript : CharacterScript
 
                 sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f) + 14;
 
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-
-                }
 
 
                 break;

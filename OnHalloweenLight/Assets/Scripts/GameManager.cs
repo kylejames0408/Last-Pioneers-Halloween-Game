@@ -42,15 +42,20 @@ public class GameManager : MonoBehaviour
             case GameState.Pause:
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-
-
-                    SceneManager.LoadScene(sceneName:"Menu");
-
-                }
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
                     LevelManager.pauseMenu.SetActive(false);
                     gameState = GameState.Game;
+
+
+
+                }
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    SceneManager.LoadScene(sceneName: "Menu");
+
+                }
+                if (Input.GetKeyDown(KeyCode.KeypadEnter))
+                {
+                    Application.Quit();
 
                 }
                 break;
