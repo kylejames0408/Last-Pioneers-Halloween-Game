@@ -273,6 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlaced: 1
   canGrab: 0
+  onStand: 0
 --- !u!1 &796850634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6602422969488916977, guid: 1e95049eaee24dd40a5f8b66721fdf01,
@@ -853,6 +854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82b616906fde0948973e70034001f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
 --- !u!4 &1798274978
 Transform:
   m_ObjectHideFlags: 0
@@ -1078,6 +1081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8292544957559836136, guid: 05b1d80cc7c13914198f7ee56b8e87f3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8292544957559836137, guid: 05b1d80cc7c13914198f7ee56b8e87f3,
         type: 3}

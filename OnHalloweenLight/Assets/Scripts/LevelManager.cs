@@ -18,7 +18,6 @@ public class LevelManager : MonoBehaviour
     public static GameObject pauseMenu;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +42,11 @@ public class LevelManager : MonoBehaviour
     {
         playerScript.touchingStand = false;
 
+        bool standRightOfPlayer;
+
         for(int i = 0; i < roomStands.Count; i++)
         {
+
             roomStands[i].canGrab = roomStands[i].PickUpCollision(LevelManager.player);
             if(roomStands[i].canGrab)
             {

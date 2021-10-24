@@ -21,6 +21,7 @@ public class PlayerScript : CharacterScript
     }
 
     public bool touchingStand;
+    public bool facingRight; //This tells the direction the player is facing.
 
     //If you were in range to pickup AND place on a stand then you would to both on the same frame. This fixes that
     public int frameCooldown;
@@ -29,6 +30,7 @@ public class PlayerScript : CharacterScript
     void Start()
     {
         heldLantern = null;
+        facingRight = true;
         frameCooldown = 0;
 
         //sets this player as the current one in level manager
@@ -112,11 +114,15 @@ public class PlayerScript : CharacterScript
         if (mov.x < 0)
         {
             playerScale.x = -1;
+            facingRight = false;
+            //Debug.Log("Left");
         }
         
         if (mov.x > 0)
         {
             playerScale.x = 1;
+            facingRight = true;
+            //Debug.Log("Right");
         }
 
         transform.localScale = playerScale;

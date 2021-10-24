@@ -17,6 +17,7 @@ public class LanternStand : InteractObject, IInteractable
     /// </summary>
     public bool hasLantern = false;
     public bool canGrab = false;
+    public bool playerFacing = false;
 
     /// <summary>
     /// Set the handPos to the value
@@ -58,6 +59,8 @@ public class LanternStand : InteractObject, IInteractable
         {
             //Debug.Log(canGrab);
 
+
+
             if (!hasLantern)
             {
                 //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand
@@ -73,6 +76,7 @@ public class LanternStand : InteractObject, IInteractable
                     //move the position to the top of the stand
                     Vector2 placePos = new Vector2(this.transform.position.x, this.transform.position.y + 1f);
                     currentLantern.transform.position = placePos;
+                    currentLantern.onStand = true;
                     print("lantern placed on stand");
 
                     LevelManager.playerScript.frameCooldown = 5;
@@ -86,6 +90,7 @@ public class LanternStand : InteractObject, IInteractable
                     //removes lantern from stand and puts it in player hand
                     LevelManager.playerScript.heldLantern = currentLantern;
                     currentLantern.isPlaced = false;
+                    currentLantern.onStand = false;
                     currentLantern = null;
                     hasLantern = false;
 
@@ -106,13 +111,13 @@ public class LanternStand : InteractObject, IInteractable
     {
         // get extents of player +/- some number that I change all the time
         float playerMinX = player.transform.position.x - player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
-        playerMinX -= .25f;
+        playerMinX -= .5f;
         float playerMaxX = player.transform.position.x + player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
-        playerMaxX += .25f;
+        playerMaxX += .5f;
         float playerMinY = player.transform.position.y - player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
-        playerMinY -= .25f;
+        playerMinY -= .5f;
         float playerMaxY = player.transform.position.y + player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
-        playerMaxY += .25f;
+        playerMaxY += .5f;
 
         // get horizontal extents of lantern
         //Should technically account for offsets but whatever
@@ -125,26 +130,69 @@ public class LanternStand : InteractObject, IInteractable
         if (playerMaxX < standMinX) //player is completely to the left of stand
         {
             //Debug.Log("player too far to the left");
+            playerFacing = false;
             return false;
         }
 
         if (standMaxX < playerMinX) //stand is completely to the left of player
         {
             //Debug.Log("player too far to the right");
+            playerFacing = false;
             return false;
         }
         if (playerMaxY < standMinY) //player is completely below stand
         {
             //Debug.Log("player too far down");
+            playerFacing = false;
             return false;
         }
         if (standMaxY < playerMinY) //stand is completely below player
         {
             //Debug.Log(standMaxY);
             //Debug.Log(playerMinY);
+            playerFacing = false;
             return false;
         }
-        //Debug.Log("Should be able to grab");
+        //Debug.Log("Is in range to grab");
+
+        //At this point the player is in range to grab, we want to check if he's facing the right direction tho
+        //These two variables are reset to be JUST the player
+        playerMinX = player.transform.position.x - player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
+        playerMinX += .2f; //This just makes it a little cleaner
+        playerMaxX = player.transform.position.x + player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
+        if (playerMaxX < standMinX) //player is to the left of the stand
+        {
+            //If they are to the left and facint right
+            if(LevelManager.playerScript.facingRight)
+            {
+                playerFacing = true;
+                return true;
+            }
+            else
+            {
+                playerFacing = false;
+                return false;
+            }
+            
+        }
+        if (standMaxX < playerMinX) //player is to the right of the stand
+        {
+            //If they are to the right and facing left
+            if (!LevelManager.playerScript.facingRight)
+            {
+                playerFacing = true;
+                return true;
+            }
+            else
+            {
+                playerFacing = false;
+                return false;
+            }
+
+        }
+
+        //If the player is under or over the stand then it can pick up
+        playerFacing = true;
         return true; // the only remaining alternative is that they are colliding
     }
 }
