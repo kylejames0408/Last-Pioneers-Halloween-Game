@@ -17,7 +17,6 @@ public class LanternStand : InteractObject, IInteractable
     /// </summary>
     public bool hasLantern = false;
     public bool canGrab = false;
-    public bool playerFacing = false;
 
     /// <summary>
     /// Set the handPos to the value
@@ -130,27 +129,23 @@ public class LanternStand : InteractObject, IInteractable
         if (playerMaxX < standMinX) //player is completely to the left of stand
         {
             //Debug.Log("player too far to the left");
-            playerFacing = false;
             return false;
         }
 
         if (standMaxX < playerMinX) //stand is completely to the left of player
         {
             //Debug.Log("player too far to the right");
-            playerFacing = false;
             return false;
         }
         if (playerMaxY < standMinY) //player is completely below stand
         {
             //Debug.Log("player too far down");
-            playerFacing = false;
             return false;
         }
         if (standMaxY < playerMinY) //stand is completely below player
         {
             //Debug.Log(standMaxY);
             //Debug.Log(playerMinY);
-            playerFacing = false;
             return false;
         }
         //Debug.Log("Is in range to grab");
@@ -165,12 +160,10 @@ public class LanternStand : InteractObject, IInteractable
             //If they are to the left and facint right
             if(LevelManager.playerScript.facingRight)
             {
-                playerFacing = true;
                 return true;
             }
             else
             {
-                playerFacing = false;
                 return false;
             }
             
@@ -180,19 +173,16 @@ public class LanternStand : InteractObject, IInteractable
             //If they are to the right and facing left
             if (!LevelManager.playerScript.facingRight)
             {
-                playerFacing = true;
                 return true;
             }
             else
             {
-                playerFacing = false;
                 return false;
             }
 
         }
 
         //If the player is under or over the stand then it can pick up
-        playerFacing = true;
         return true; // the only remaining alternative is that they are colliding
     }
 }

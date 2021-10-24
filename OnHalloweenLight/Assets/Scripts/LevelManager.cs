@@ -42,8 +42,6 @@ public class LevelManager : MonoBehaviour
     {
         playerScript.touchingStand = false;
 
-        bool standRightOfPlayer;
-
         for(int i = 0; i < roomStands.Count; i++)
         {
 
