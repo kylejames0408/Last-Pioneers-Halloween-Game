@@ -7,6 +7,8 @@ public class PlayerScript : CharacterScript
     public Rigidbody2D body;
     public Animator animationRef;
 
+    public List<string> spokenTo = new List<string>();
+
     Vector2 mov;
 
     //variable, getter and setter for the players currently held lantern

@@ -58,8 +58,6 @@ public class LanternStand : InteractObject, IInteractable
         {
             //Debug.Log(canGrab);
 
-
-
             if (!hasLantern)
             {
                 //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand

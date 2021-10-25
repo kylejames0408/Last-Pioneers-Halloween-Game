@@ -6,6 +6,7 @@ public class NPC : InteractObject, IInteractable
 {
     public Dialogue dialogue;
     public bool inRange;
+    public bool spokenToAlready = false;
 
 
     // Start is called before the first frame update
@@ -35,16 +36,26 @@ public class NPC : InteractObject, IInteractable
     }
 
     public override void DoSomething()
-    {
+    {        
         //checks if player is in range and pressing space
         if (Input.GetKeyDown(KeyCode.Space)&&inRange)
         {
+            CheckSpokenTo();
+
             //show text box
             LevelManager.textBox.GetComponent<SpriteRenderer>().enabled = true;
 
             //switch game state and begin dialogue
             GameManager.gameState = GameState.Talking;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+
+            if (!spokenToAlready)
+            {
+                spokenToAlready = true;
+                LevelManager.playerScript.spokenTo.Add(this.name);
+                dialogue.spokenTo = spokenToAlready;
+                Debug.Log("Added name to spoken list");
+            }
         }
     }
 
@@ -61,6 +72,11 @@ public class NPC : InteractObject, IInteractable
         if (collision.collider.tag == "Player")
         {
             inRange = true;
+
+            LevelManager.arrowDialogue.transform.position = new Vector3(this.transform.position.x,
+            this.transform.position.y - 0.30f + this.GetComponent<SpriteRenderer>().bounds.size.y,
+            this.transform.position.z);
+            LevelManager.arrowDialogue.SetActive(true);
         }
     }
 
@@ -70,6 +86,18 @@ public class NPC : InteractObject, IInteractable
         if (collision.collider.tag == "Player")
         {
             inRange = false;
+            LevelManager.arrowDialogue.SetActive(false);
+        }
+    }
+
+    private void CheckSpokenTo()
+    {
+        for(int i = 0; i < LevelManager.playerScript.spokenTo.Count; i++)
+        {
+            if (LevelManager.playerScript.spokenTo[i] == this.name)
+            {
+                Debug.Log("You've spoken to this NPC before!");
+            }
         }
     }
 }

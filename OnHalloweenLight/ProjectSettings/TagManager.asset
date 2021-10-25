@@ -12,6 +12,7 @@ TagManager:
   - Hand
   - TextBox
   - PauseMenu
+  - DialogIndicator
   layers:
   - Default
   - TransparentFX

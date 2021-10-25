@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
 
     public static GameObject textBox;
     public static GameObject pauseMenu;
+    public static GameObject arrowDialogue;
 
 
     // Start is called before the first frame update
@@ -31,6 +32,10 @@ public class LevelManager : MonoBehaviour
 
         textBox = GameObject.FindWithTag("TextBox");
         pauseMenu = GameObject.FindWithTag("PauseMenu");
+
+        arrowDialogue = GameObject.FindWithTag("DialogIndicator");
+
+        arrowDialogue.SetActive(false);
 
         pauseMenu.SetActive(false);
 

@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentances;
+    private Queue<string> sentancesSpokenTo;
 
     public Text nameText;
     public Text dialogueText;
+
+    public bool spokenTo;
 
     // Start is called before the first frame update
     void Start()
     {
         sentances = new Queue<string>();
+        sentancesSpokenTo = new Queue<string>();
     }
 
 
@@ -23,10 +27,18 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
 
         sentances.Clear();
+        sentancesSpokenTo.Clear();
+
+        spokenTo = dialogue.spokenTo;
 
         foreach (string sentance in dialogue.sentances)
         {
             sentances.Enqueue(sentance);
+        }
+
+        foreach (string sentanceSpoken in dialogue.sentancesSpokenTo)
+        {
+            sentancesSpokenTo.Enqueue(sentanceSpoken);
         }
 
         DisplayNextSentance();
@@ -35,7 +47,19 @@ public class DialogueManager : MonoBehaviour
     //displays the next sentance in the sentance queue, or ends talking
     public void DisplayNextSentance()
     {
-        if (sentances.Count == 0)
+        Queue<string> dialogueChosen;
+
+        if (spokenTo)
+        {
+            dialogueChosen = sentancesSpokenTo;
+            Debug.Log("You are using spoken to lines");
+        } else
+        {
+            dialogueChosen = sentances;
+            Debug.Log("You are using not spoken to lines");
+        }
+
+        if (dialogueChosen.Count == 0)
         {
             GameManager.gameState = GameState.Game;
             nameText.text = "";
@@ -45,7 +69,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            string sentance = sentances.Dequeue();
+            string sentance = dialogueChosen.Dequeue();
             dialogueText.text = sentance;
         }
     }
