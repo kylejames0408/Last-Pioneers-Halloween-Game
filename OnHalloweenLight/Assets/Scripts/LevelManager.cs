@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     //global list of lanterns
     public static List<Lantern> roomLanterns;
     public static List<LanternStand> roomStands;
+    public static QuestManager questManager;
 
 
     //global variables for the player and their hand object
@@ -39,6 +40,8 @@ public class LevelManager : MonoBehaviour
 
         pauseMenu.SetActive(false);
 
+        questManager = this.GetComponent<QuestManager>();
+
 
     }
 
@@ -56,11 +59,5 @@ public class LevelManager : MonoBehaviour
                 playerScript.touchingStand = true;
             }
         }
-
-
-
-
-
-
     }
 }

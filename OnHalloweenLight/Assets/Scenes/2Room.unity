@@ -199,7 +199,12 @@ PrefabInstance:
     - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
       propertyPath: dialogue.sentancesSpokenTo.Array.size
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentances.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
@@ -209,22 +214,51 @@ PrefabInstance:
     - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
       propertyPath: dialogue.sentancesSpokenTo.Array.data[0]
-      value: testing
+      value: We're going to need all the help we can get if we want to finish in
+        time!
       objectReference: {fileID: 0}
     - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
       propertyPath: dialogue.sentancesSpokenTo.Array.data[1]
-      value: testing 2!
+      value: 'Let''s check on what you have left:'
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentances.Array.data[1]
+      value: We're going to need all the help we can get if we want to finish in
+        time! I would help if I could but being only a pumpkin adds some difficulty
+        to that.
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[2]
+      value: pumpkin
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[3]
+      value: candy
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[4]
+      value: midnight
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentances.Array.data[2]
+      value: You can always talk with me to check what's left before we can start
+        Halloween Night!
       objectReference: {fileID: 0}
     - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.31
+      value: -9.14
       objectReference: {fileID: 0}
     - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.17
+      value: -5.77
       objectReference: {fileID: 0}
     - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
@@ -270,6 +304,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.991317
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.991317
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.991317
       objectReference: {fileID: 0}
     - target: {fileID: 5451468051441449484, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
@@ -357,6 +406,24 @@ PrefabInstance:
       objectReference: {fileID: 1470217827}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9ce2da82931f9141be208ebc4858e3f, type: 3}
+--- !u!1 &256553106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9208305736257383310, guid: abd80a05f876e3a4ab0562b3a8ca0509,
+    type: 3}
+  m_PrefabInstance: {fileID: 9208305737471655115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &256553107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256553106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ed7c9126db7a343b00ea44a3137a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &350102005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 83851260688261193, guid: c9ce2da82931f9141be208ebc4858e3f,
