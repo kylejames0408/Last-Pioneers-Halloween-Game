@@ -75,7 +75,9 @@ public class LanternStand : InteractObject, IInteractable
                     //move the position to the top of the stand
                     Vector2 placePos = new Vector2(this.transform.position.x, this.transform.position.y + 1f);
                     currentLantern.transform.position = placePos;
-                    currentLantern.onStand = true;
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", true);
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", false);
                     print("lantern placed on stand");
 
                     LevelManager.playerScript.frameCooldown = 5;
