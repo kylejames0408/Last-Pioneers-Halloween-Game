@@ -196,6 +196,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2134154280}
     m_Modifications:
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: inRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[0]
+      value: testing
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[1]
+      value: testing 2!
+      objectReference: {fileID: 0}
     - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4119,12 +4139,12 @@ PrefabInstance:
     - target: {fileID: 1976739398287212460, guid: 70386c2198ab5374babd422970184d91,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.28
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 1976739398287212460, guid: 70386c2198ab5374babd422970184d91,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.81
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1976739398287212460, guid: 70386c2198ab5374babd422970184d91,
         type: 3}
@@ -4611,12 +4631,12 @@ PrefabInstance:
     - target: {fileID: 1976739398287212460, guid: 70386c2198ab5374babd422970184d91,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.42
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1976739398287212460, guid: 70386c2198ab5374babd422970184d91,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.84
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1976739398287212460, guid: 70386c2198ab5374babd422970184d91,
         type: 3}
@@ -4667,6 +4687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LanternStand
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375758149835938022, guid: 70386c2198ab5374babd422970184d91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70386c2198ab5374babd422970184d91, type: 3}
