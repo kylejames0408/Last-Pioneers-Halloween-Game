@@ -6,6 +6,8 @@ public class Lantern : InteractObject, IInteractable
 {
     Vector2 playerHandPos;
 
+    List<GameObject> touchingList;
+
     /// <summary>
     /// isPlaced - If it's on the ground at that moment or not.
     /// canGrab - If the player is in touching grabbable range. 
@@ -13,7 +15,6 @@ public class Lantern : InteractObject, IInteractable
     public bool isPlaced = true;
     public bool canGrab = false;
     public bool onStand = false;
-
 
     //SpriteRenderer sprite;
 
@@ -29,6 +30,7 @@ public class Lantern : InteractObject, IInteractable
         // playerScript = player.GetComponent<PlayerScript>();
 
         canGrab = false;
+        touchingList = new List<GameObject>();
 
         this.GetComponent<BoxCollider2D>().enabled = false;
         base.isLantern = true;
@@ -80,6 +82,7 @@ public class Lantern : InteractObject, IInteractable
         }
 
         DoSomething();
+        LightTouching();
 
         sprite.sortingOrder = Mathf.RoundToInt(transform.position.y * -10f);
     }
@@ -100,7 +103,7 @@ public class Lantern : InteractObject, IInteractable
             {
                 isPlaced = true;
                 LevelManager.playerScript.heldLantern = null;
-                print("latern placed");
+                //print("latern placed");
                 canGrab = true;
                 this.GetComponent<BoxCollider2D>().enabled = false;
 
@@ -123,7 +126,7 @@ public class Lantern : InteractObject, IInteractable
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", true);
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", false);
-                    print("latern picked up");
+                    //print("latern picked up");
 
                     LevelManager.playerScript.frameCooldown = 5;
                 }
@@ -217,5 +220,51 @@ public class Lantern : InteractObject, IInteractable
         //If the player is under or over the lantern then it can pick up
         //Debug.Log("Is in range to grab");
         return true; // the only remaining alternative is that they are colliding
+    }
+
+    public void LightTouching()
+    {
+        GameObject[] touching = GameObject.FindGameObjectsWithTag("NPC");
+
+        foreach (GameObject l in touching)
+        {
+            float dist = Vector3.Distance(l.transform.position, this.transform.position);
+            //Debug.Log(dist);
+
+            if (dist <= 3.8f)
+            {
+                
+                if (!touchingList.Contains(l))
+                {
+                    touchingList.Add(l);
+                    Debug.Log("Added object to touching list");
+                }
+                    
+            }
+            else if (dist > 3.8f)
+            {
+                //Debug.Log("Out of range");
+                if (touchingList.Contains(l))
+                {
+                    Debug.Log("TOUCHING: " + touchingList.Count);
+                    int index = touchingList.IndexOf(l);
+
+                    touchingList.Remove(l);
+
+                    if (touchingList.Count == 0)
+                    {
+                        l.GetComponent<InteractObject>().touchingLight = false;
+                        Debug.Log("UPDATE STAT: " + l.GetComponent<InteractObject>().touchingLight);
+                    }
+                }
+                    
+            }
+        }
+
+        for (int i = 0; i < touchingList.Count; i++)
+        {
+            touchingList[i].GetComponent<InteractObject>().touchingLight = true;
+            Debug.Log("UPDATE STAT: " + touching[i].GetComponent<InteractObject>().touchingLight);
+        }
     }
 }

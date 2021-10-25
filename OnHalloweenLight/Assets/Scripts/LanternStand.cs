@@ -8,8 +8,6 @@ public class LanternStand : InteractObject, IInteractable
     //references to player script, and lantern on stand
     public Lantern currentLantern;
 
-
-
     /// <summary>
     /// hasLantern - If a lantern is present on the stand
     /// canGrab - If the player is in touching grabbable range. 

@@ -121,3 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c87a86e0bba1845a66b79def4e4e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteNoLight: {fileID: 21300000, guid: 1dbe855dca5abf643aa67317659245c0, type: 3}
+  spriteWithLight: {fileID: 21300000, guid: 1dbe855dca5abf643aa67317659245c0, type: 3}
+  touchingLight: 0

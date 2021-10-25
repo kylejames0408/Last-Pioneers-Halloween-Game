@@ -6,6 +6,7 @@ public class NPC : InteractObject, IInteractable
 {
     public Dialogue dialogue;
     public bool inRange;
+    public bool lightTouching = false;
     public bool spokenToAlready = false;
 
 
@@ -22,7 +23,8 @@ public class NPC : InteractObject, IInteractable
         {
 
             case GameState.Game:
-                    DoSomething();
+                SpriteUpdate();
+                DoSomething();
                 break;
 
             case GameState.Talking:
@@ -31,14 +33,14 @@ public class NPC : InteractObject, IInteractable
                     FindObjectOfType<DialogueManager>().DisplayNextSentance();
                 }
                 break;
-                
+
         }
     }
 
     public override void DoSomething()
-    {        
+    {
         //checks if player is in range and pressing space
-        if (Input.GetKeyDown(KeyCode.Space)&&inRange)
+        if (Input.GetKeyDown(KeyCode.Space) && inRange)
         {
             CheckSpokenTo();
 
@@ -59,7 +61,17 @@ public class NPC : InteractObject, IInteractable
         }
     }
 
-
+    public override void SpriteUpdate()
+    {
+        if (!touchingLight)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = spriteNoLight;
+        }
+        else
+        {
+            this.GetComponent<SpriteRenderer>().sprite = spriteWithLight;
+        }
+    }
 
     //checks player collision
     // i did this like this rather than the range thing we have for the lanterns bc
@@ -74,7 +86,7 @@ public class NPC : InteractObject, IInteractable
             inRange = true;
 
             LevelManager.arrowDialogue.transform.position = new Vector3(this.transform.position.x,
-            this.transform.position.y - 0.30f + this.GetComponent<SpriteRenderer>().bounds.size.y,
+            this.transform.position.y - 0.30f + this.GetComponent<SpriteRenderer>().bounds.size.y / 2,
             this.transform.position.z);
             LevelManager.arrowDialogue.SetActive(true);
         }
@@ -92,7 +104,7 @@ public class NPC : InteractObject, IInteractable
 
     private void CheckSpokenTo()
     {
-        for(int i = 0; i < LevelManager.playerScript.spokenTo.Count; i++)
+        for (int i = 0; i < LevelManager.playerScript.spokenTo.Count; i++)
         {
             if (LevelManager.playerScript.spokenTo[i] == this.name)
             {

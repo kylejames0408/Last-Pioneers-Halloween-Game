@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 1002041163
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -742534588327237907, guid: e4d000ea596c60b4a80b116c9f83719e,
+  m_Sprite: {fileID: -1001088926649625256, guid: 1149f904ceabf9f4694b6c0637fafb5b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.039903134, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9, y: 1.36}
+    oldSize: {x: 1.0005863, y: 1}
     newSize: {x: 1.9, y: 1.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.4}
+  m_Size: {x: 0.6699076, y: 0.49553716}
   m_EdgeRadius: 0
 --- !u!114 &-6064254949016860193
 MonoBehaviour:
@@ -144,11 +144,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912532e6ac724b44186b997c6f3d7fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteNoLight: {fileID: -1001088926649625256, guid: 1149f904ceabf9f4694b6c0637fafb5b,
+    type: 3}
+  spriteWithLight: {fileID: -6818440738703340503, guid: 1149f904ceabf9f4694b6c0637fafb5b,
+    type: 3}
+  touchingLight: 0
   dialogue:
     name: Perry the Pumpkin
+    spokenTo: 0
     sentances:
     - Hey there! I'm Perry the Pumpkin! Are you the one who is going to help us set
       up for Halloween this year?
     - Were going to need all the help we can get if we want to finish in time! I
       would help if I could but being only a pumpkin adds some difficulty to that.
+    sentancesSpokenTo: []
   inRange: 0
+  lightTouching: 0
+  spokenToAlready: 0
