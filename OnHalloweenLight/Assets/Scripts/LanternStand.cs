@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class LanternStand : InteractObject, IInteractable
 {
@@ -16,6 +16,8 @@ public class LanternStand : InteractObject, IInteractable
     public bool hasLantern = false;
     public bool canGrab = false;
 
+    private Text indicatorText;
+
     /// <summary>
     /// Set the handPos to the value
     /// 
@@ -28,6 +30,8 @@ public class LanternStand : InteractObject, IInteractable
 
         base.sprite = GetComponent<SpriteRenderer>();
         LevelManager.roomStands.Add(this);
+
+        indicatorText = GameObject.Find("IndicatorCanvas/IndicatorText").GetComponent<Text>();
     }
 
 
@@ -76,7 +80,8 @@ public class LanternStand : InteractObject, IInteractable
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", true);
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", false);
-                    print("lantern placed on stand");
+                    //print("lantern placed on stand");
+                    indicatorText.text = "";
 
                     LevelManager.playerScript.frameCooldown = 5;
                 }
@@ -98,6 +103,7 @@ public class LanternStand : InteractObject, IInteractable
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", false);
 
                     print("latern picked up from stand");
+                    indicatorText.text = "Press SPACE to drop Lantern";
 
                     LevelManager.playerScript.frameCooldown = 5;
                 }

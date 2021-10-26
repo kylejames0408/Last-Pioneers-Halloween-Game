@@ -41,8 +41,6 @@ public class LevelManager : MonoBehaviour
         pauseMenu.SetActive(false);
 
         questManager = this.GetComponent<QuestManager>();
-
-
     }
 
     // Update is called once per frame
@@ -57,6 +55,7 @@ public class LevelManager : MonoBehaviour
             if(roomStands[i].canGrab)
             {
                 playerScript.touchingStand = true;
+                
             }
         }
     }

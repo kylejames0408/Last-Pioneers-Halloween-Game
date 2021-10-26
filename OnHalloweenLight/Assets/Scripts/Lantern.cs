@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Lantern : InteractObject, IInteractable
 {
@@ -15,6 +16,8 @@ public class Lantern : InteractObject, IInteractable
     public bool isPlaced = true;
     public bool canGrab = false;
     public bool onStand = false;
+
+    private Text indicatorText;
 
     //SpriteRenderer sprite;
 
@@ -40,6 +43,8 @@ public class Lantern : InteractObject, IInteractable
         LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("isPickUpDropOff", false);
 
         sprite = GetComponent<SpriteRenderer>();
+
+        indicatorText = GameObject.Find("IndicatorCanvas/IndicatorText").GetComponent<Text>();
     }
 
     /// <summary>
@@ -71,6 +76,8 @@ public class Lantern : InteractObject, IInteractable
     void Update()
     {
         canGrab = PickUpCollision(LevelManager.player);
+
+        
 
         if (!isPlaced)
         {
@@ -114,6 +121,7 @@ public class Lantern : InteractObject, IInteractable
                 transform.position = placePos;
 
                 LevelManager.playerScript.frameCooldown = 5;
+                indicatorText.text = "";
             }
             else
             {
@@ -129,6 +137,7 @@ public class Lantern : InteractObject, IInteractable
                     //print("latern picked up");
 
                     LevelManager.playerScript.frameCooldown = 5;
+                    indicatorText.text = "Press SPACE to drop Lantern";
                 }
             }
         }

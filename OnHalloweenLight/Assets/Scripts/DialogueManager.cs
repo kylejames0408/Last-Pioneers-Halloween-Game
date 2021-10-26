@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
 
     public Text nameText;
     public Text dialogueText;
+    public GameObject indicatorText;
 
     public bool spokenTo;
     public int publicChatCount;
@@ -25,6 +26,8 @@ public class DialogueManager : MonoBehaviour
     //takes in dialogue data and begins running through it
     public void StartDialogue(Dialogue dialogue)
     {
+        indicatorText.SetActive(false);
+
         nameText.text = dialogue.name;
 
         sentances.Clear();
@@ -50,7 +53,6 @@ public class DialogueManager : MonoBehaviour
     {
         Queue<string> dialogueChosen;
 
-
         if (spokenTo)
         {
             dialogueChosen = sentancesSpokenTo;
@@ -69,7 +71,7 @@ public class DialogueManager : MonoBehaviour
             nameText.text = "";
             dialogueText.text = "";
             LevelManager.textBox.GetComponent<SpriteRenderer>().enabled = false;
-        
+            indicatorText.SetActive(true);
         }
         else
         {

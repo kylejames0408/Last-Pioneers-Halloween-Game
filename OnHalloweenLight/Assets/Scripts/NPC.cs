@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC : InteractObject, IInteractable
 {
@@ -8,12 +9,13 @@ public class NPC : InteractObject, IInteractable
     public bool inRange;
     public bool lightTouching = false;
     public bool spokenToAlready = false;
-
+    private Text indicatorText;
 
     // Start is called before the first frame update
     void Start()
     {
         inRange = false;
+        indicatorText = GameObject.Find("IndicatorCanvas/IndicatorText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -89,6 +91,8 @@ public class NPC : InteractObject, IInteractable
             this.transform.position.y - 0.30f + this.GetComponent<SpriteRenderer>().bounds.size.y / 2,
             this.transform.position.z);
             LevelManager.arrowDialogue.SetActive(true);
+
+            indicatorText.text = "Press SPACE to Talk";
         }
     }
 
@@ -99,6 +103,7 @@ public class NPC : InteractObject, IInteractable
         {
             inRange = false;
             LevelManager.arrowDialogue.SetActive(false);
+            indicatorText.text = "";
         }
     }
 
