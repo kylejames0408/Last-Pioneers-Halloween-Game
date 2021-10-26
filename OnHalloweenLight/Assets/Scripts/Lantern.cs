@@ -77,7 +77,10 @@ public class Lantern : InteractObject, IInteractable
     {
         canGrab = PickUpCollision(LevelManager.player);
 
-        
+        if(canGrab && LevelManager.playerScript.heldLantern == null)
+        {
+            PickupIndicator();
+        } 
 
         if (!isPlaced)
         {
@@ -106,7 +109,7 @@ public class Lantern : InteractObject, IInteractable
         if (Input.GetKeyDown("space"))
         {
             //checks to make sure lantern is not placed, or the player is not close enough to a stand to place it on that
-            if (!isPlaced && !LevelManager.playerScript.touchingStand && LevelManager.playerScript.frameCooldown == 0)
+            if (!isPlaced && !LevelManager.playerScript.touchingStand && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
             {
                 isPlaced = true;
                 LevelManager.playerScript.heldLantern = null;
@@ -193,8 +196,8 @@ public class Lantern : InteractObject, IInteractable
         //At this point the player is in range to grab, we want to check if he's facing the right direction tho
         //These two variables are reset to be JUST the player
         playerMinX = player.transform.position.x - player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
+        playerMinX += .4f; //This just makes it a little cleaner
         playerMaxX = player.transform.position.x + player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
-
         if (playerMaxX < lanternMinX) //player is to the left of the lantern
         {
             //If they are to the left and facint right
@@ -275,5 +278,21 @@ public class Lantern : InteractObject, IInteractable
             touchingList[i].GetComponent<InteractObject>().touchingLight = true;
            // Debug.Log("UPDATE STAT: " + touching[i].GetComponent<InteractObject>().touchingLight);
         }
+    }
+
+    public void PickupIndicator()
+    {
+        LevelManager.arrowDialogue.transform.position = new Vector3(this.transform.position.x,
+            this.transform.position.y - 0.30f + this.GetComponent<SpriteRenderer>().bounds.size.y / 2,
+            this.transform.position.z);
+        LevelManager.arrowDialogue.SetActive(true);
+
+        indicatorText.text = "Press SPACE to pick up Lantern";
+    }
+
+    public void RemoveIndicator()
+    {
+        LevelManager.arrowDialogue.SetActive(false);
+        indicatorText.text = "";
     }
 }

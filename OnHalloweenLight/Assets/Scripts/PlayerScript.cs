@@ -23,6 +23,7 @@ public class PlayerScript : CharacterScript
     }
 
     public bool touchingStand;
+    public bool touchingNPC;
     public bool facingRight; //This tells the direction the player is facing.
 
     //If you were in range to pickup AND place on a stand then you would to both on the same frame. This fixes that
@@ -41,6 +42,9 @@ public class PlayerScript : CharacterScript
         animationRef.SetBool("isPickUpDropOff", false);
 
         sprite = GetComponent<SpriteRenderer>();
+
+        touchingStand = false;
+        touchingNPC = false;
     }
 
     // Update is called once per frame
