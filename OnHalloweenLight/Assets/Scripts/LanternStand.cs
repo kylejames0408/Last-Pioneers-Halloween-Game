@@ -93,6 +93,10 @@ public class LanternStand : InteractObject, IInteractable
                     currentLantern = null;
                     hasLantern = false;
 
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("noLantern", false);
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", true);
+                    LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", false);
+
                     print("latern picked up from stand");
 
                     LevelManager.playerScript.frameCooldown = 5;

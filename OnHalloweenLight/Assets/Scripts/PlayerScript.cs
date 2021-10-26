@@ -57,11 +57,6 @@ public class PlayerScript : CharacterScript
             case GameState.Game:
 
 
-                //This is what locks the player on the screen. I'm not sure how needed this will be but might as well keep it for now.
-                //Vector3 position = transform.position;
-                //position.y = Mathf.Clamp(position.y, -5, 5);
-                //position.x = Mathf.Clamp(position.x, -15, 15);
-                //transform.position = position;
 
                 mov.x = Input.GetAxisRaw("Horizontal");
                 mov.y = Input.GetAxisRaw("Vertical");
@@ -103,7 +98,7 @@ public class PlayerScript : CharacterScript
         // Flip the Character:
         Vector2 playerScale = transform.localScale;
 
-        if(mov.x == 0)
+        if(mov.x == 0 && mov.y==0)
         {
             animationRef.SetBool("isWalking", false);
             //Debug.Log("not walking");
