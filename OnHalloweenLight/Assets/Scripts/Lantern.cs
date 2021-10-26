@@ -254,7 +254,7 @@ public class Lantern : InteractObject, IInteractable
                     if (touchingList.Count == 0)
                     {
                         l.GetComponent<InteractObject>().touchingLight = false;
-                        Debug.Log("UPDATE STAT: " + l.GetComponent<InteractObject>().touchingLight);
+                       // Debug.Log("UPDATE STAT: " + l.GetComponent<InteractObject>().touchingLight);
                     }
                 }
                     
@@ -264,7 +264,7 @@ public class Lantern : InteractObject, IInteractable
         for (int i = 0; i < touchingList.Count; i++)
         {
             touchingList[i].GetComponent<InteractObject>().touchingLight = true;
-            Debug.Log("UPDATE STAT: " + touching[i].GetComponent<InteractObject>().touchingLight);
+           // Debug.Log("UPDATE STAT: " + touching[i].GetComponent<InteractObject>().touchingLight);
         }
     }
 }

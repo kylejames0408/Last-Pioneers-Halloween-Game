@@ -28,7 +28,7 @@ public class NPC : InteractObject, IInteractable
                 break;
 
             case GameState.Talking:
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space)&&inRange)
                 {
                     FindObjectOfType<DialogueManager>().DisplayNextSentance();
                 }
