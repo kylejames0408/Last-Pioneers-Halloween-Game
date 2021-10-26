@@ -42,7 +42,7 @@ public class QuestManager : MonoBehaviour
     {
         if (num < Quests.Length);
         {
-            Debug.Log("Printing quest " + num);
+            //Debug.Log("Printing quest " + num);
             return Quests[num, 0];
         }
     }

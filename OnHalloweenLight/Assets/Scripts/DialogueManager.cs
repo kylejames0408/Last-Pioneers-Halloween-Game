@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
 
     public bool spokenTo;
+    public int publicChatCount;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,7 @@ public class DialogueManager : MonoBehaviour
     {
         Queue<string> dialogueChosen;
 
+
         if (spokenTo)
         {
             dialogueChosen = sentancesSpokenTo;
@@ -58,6 +60,8 @@ public class DialogueManager : MonoBehaviour
             dialogueChosen = sentances;
             //Debug.Log("You are using not spoken to lines");
         }
+
+        publicChatCount = dialogueChosen.Count;
 
         if (dialogueChosen.Count == 0)
         {
@@ -70,6 +74,7 @@ public class DialogueManager : MonoBehaviour
         else
         {
             string sentance = dialogueChosen.Dequeue();
+
             if(nameText.text == "Perry the Pumpkin" && sentance == "pumpkin")
             {
                 string stringstat = "still filled with critters!"; ;
