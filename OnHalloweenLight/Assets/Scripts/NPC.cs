@@ -14,6 +14,8 @@ public class NPC : InteractObject, IInteractable
     // Start is called before the first frame update
     void Start()
     {
+        LevelManager.npcs.Add(this);
+
         inRange = false;
         indicatorText = GameObject.Find("IndicatorCanvas/IndicatorText").GetComponent<Text>();
     }
@@ -86,6 +88,7 @@ public class NPC : InteractObject, IInteractable
         if (collision.collider.tag == "Player")
         {
             inRange = true;
+            LevelManager.playerScript.touchingNPC = true;
 
             LevelManager.arrowDialogue.transform.position = new Vector3(this.transform.position.x,
             this.transform.position.y - 0.30f + this.GetComponent<SpriteRenderer>().bounds.size.y / 2,
@@ -101,6 +104,8 @@ public class NPC : InteractObject, IInteractable
     {
         if (collision.collider.tag == "Player")
         {
+            LevelManager.playerScript.touchingNPC = false;
+
             inRange = false;
             LevelManager.arrowDialogue.SetActive(false);
             indicatorText.text = "";

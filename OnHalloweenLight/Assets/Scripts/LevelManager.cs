@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     //global list of lanterns
     public static List<Lantern> roomLanterns;
     public static List<LanternStand> roomStands;
+    public static List<NPC> npcs;
     public static QuestManager questManager;
 
 
@@ -25,6 +26,8 @@ public class LevelManager : MonoBehaviour
     {
         roomLanterns = new List<Lantern>();
         roomStands = new List<LanternStand>();
+        npcs = new List<NPC>();
+
 
 
         //doing this with tagging was easier than doing it in the inspector
@@ -46,14 +49,26 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         playerScript.touchingStand = false;
 
-        for(int i = 0; i < roomStands.Count; i++)
+
+        if(!playerScript.touchingNPC)
+        {
+            roomStands[0].RemoveIndicator();
+        }
+
+
+        for (int i = 0; i < roomStands.Count; i++)
         {
 
             roomStands[i].canGrab = roomStands[i].PickUpCollision(LevelManager.player);
             if(roomStands[i].canGrab)
             {
+                if(playerScript.heldLantern != null && roomStands[i].currentLantern == null)
+                {
+                    roomStands[i].PickupIndicator();
+                }
                 playerScript.touchingStand = true;
                 
             }

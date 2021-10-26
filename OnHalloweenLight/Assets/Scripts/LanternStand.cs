@@ -44,9 +44,9 @@ public class LanternStand : InteractObject, IInteractable
     /// </summary>
     void Update()
     {
-
         DoSomething();
         //base.InLanternRange();
+
     }
 
     /// <summary>
@@ -56,6 +56,7 @@ public class LanternStand : InteractObject, IInteractable
     /// </summary>
     public override void DoSomething()
     {
+
         if (Input.GetKeyDown("space"))
         {
             //Debug.Log(canGrab);
@@ -65,6 +66,7 @@ public class LanternStand : InteractObject, IInteractable
                 //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand
                 if(LevelManager.playerScript.heldLantern !=null && canGrab && LevelManager.playerScript.frameCooldown == 0)
                 {
+
                     //set the current lantern to the players one and remove the lantern from the player
                     currentLantern = LevelManager.playerScript.heldLantern;
                     currentLantern.isPlaced = true;
@@ -88,9 +90,11 @@ public class LanternStand : InteractObject, IInteractable
             }
             else
             {
+
                 //checks if the player is close enough to the stand and they have nothing in their hand
                 if (canGrab && LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0)
                 {
+
                     //removes lantern from stand and puts it in player hand
                     LevelManager.playerScript.heldLantern = currentLantern;
                     currentLantern.isPlaced = false;
@@ -195,5 +199,22 @@ public class LanternStand : InteractObject, IInteractable
         //If the player is under or over the stand then it can pick up
         return true; // the only remaining alternative is that they are colliding
     }
+
+    public void PickupIndicator()
+    {
+        LevelManager.arrowDialogue.transform.position = new Vector3(this.transform.position.x,
+            this.transform.position.y - 0.30f + this.GetComponent<SpriteRenderer>().bounds.size.y / 2,
+            this.transform.position.z);
+        LevelManager.arrowDialogue.SetActive(true);
+
+        indicatorText.text = "Press SPACE to place Lantern";
+    }
+
+    public void RemoveIndicator()
+    {
+        LevelManager.arrowDialogue.SetActive(false);
+        indicatorText.text = "";
+    }
+
 }
 
