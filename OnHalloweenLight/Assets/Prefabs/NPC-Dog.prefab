@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &881550332328288644
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2627455100886144867}
+    m_Modifications:
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.069515854
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.74332833
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7788407159039531918, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2902330758340590810, guid: 1490d6c595cb6a04194aad4789c3dddd,
+        type: 3}
+      propertyPath: m_Name
+      value: Dog
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: -4612256939138549978, guid: 1490d6c595cb6a04194aad4789c3dddd,
+    type: 3}
+--- !u!1001 &2427568774433525016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentances.Array.data[0]
+      value: Perry sent you? O-oh I love decorating! I would help you, but I think
+        you got it all covered
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentances.Array.data[1]
+      value: I think I left my lantern in the dog house... hehe...
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[0]
+      value: Did you happen to find my bone in the dog house while lookingfor the
+        lantern?
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[1]
+      value: I swear I left it in there.... *mumbles*
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: spriteNoLight
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: spriteWithLight
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: dialogue.name
+      value: Barry the Pup
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451468051441449484, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC-Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744359530011370325, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.005433202
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744359530011370325, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.7433953
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744359530011370325, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5518403
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744359530011370325, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.599218
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913133012583842976, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913133012583842976, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913133012583842976, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 973437133
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913133012583842976, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 282ce5dbd8e91ba409cfc39a00e22982, type: 3}
+--- !u!4 &2627455100886144867 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 416280110416239227, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+    type: 3}
+  m_PrefabInstance: {fileID: 2427568774433525016}
+  m_PrefabAsset: {fileID: 0}
