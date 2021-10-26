@@ -5585,7 +5585,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.4
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 000000003f3ce5942d624afe4befb93b67f5d28fcd78053aadf39e5ae77601f0
+  m_ApplyToSortingLayers: 000000003f3ce5942d624afe4befb93b67f5d28fcd78053aadf39e5ae77601f0d72414d5
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -5738,6 +5738,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1331657550, guid: 1e95049eaee24dd40a5f8b66721fdf01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6503873269036178510, guid: 1e95049eaee24dd40a5f8b66721fdf01,
         type: 3}
       propertyPath: m_LocalPosition.x

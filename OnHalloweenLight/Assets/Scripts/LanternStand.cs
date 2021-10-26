@@ -73,7 +73,7 @@ public class LanternStand : InteractObject, IInteractable
 
 
                     //move the position to the top of the stand
-                    Vector2 placePos = new Vector2(this.transform.position.x, this.transform.position.y + 1f);
+                    Vector2 placePos = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
                     currentLantern.transform.position = placePos;
                     currentLantern.onStand = true;
 
