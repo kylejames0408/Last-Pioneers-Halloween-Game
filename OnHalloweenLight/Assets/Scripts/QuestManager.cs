@@ -28,7 +28,7 @@ public class QuestManager : MonoBehaviour
             case GameState.Game:
                 if (Crow.crowCount == 0)
                 {
-                    Quests[0, 1] = "true";
+                    UpdateQuest("pumpkin patch", "true");
                 }
                 break;
         }
@@ -49,11 +49,12 @@ public class QuestManager : MonoBehaviour
 
     public string GetQuestName(int num)
     {
-        if (num < Quests.Length);
+        if (num < Quests.Length && num >= 0)
         {
             //Debug.Log("Printing quest " + num);
             return Quests[num, 0];
         }
+        return "Quest request not valid";
     }
 
     public void UpdateQuest(string name, string status)
