@@ -110,6 +110,14 @@ public class DialogueManager : MonoBehaviour
                 sentance = "The " + LevelManager.questManager.GetQuestName(2) + stringstat;
             }
 
+
+
+
+            if (nameText.text == "Skittles the Skeleton" && Crow.crowCount == 0)
+            {
+                sentance = "Thank you! Now that those pesky crows are gone I can focus on tending to my crops!";
+            }
+
             dialogueText.text = sentance;
         }
     }

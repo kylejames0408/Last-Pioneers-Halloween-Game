@@ -23,7 +23,16 @@ public class QuestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        switch (GameManager.gameState)
+        {
+            case GameState.Game:
+                if (Crow.crowCount == 0)
+                {
+                    Quests[0, 1] = "true";
+                }
+                break;
+        }
+              
     }
 
     public string GetQuestStatus(string name)
