@@ -77,11 +77,6 @@ public class Lantern : InteractObject, IInteractable
     {
         canGrab = PickUpCollision(LevelManager.player);
 
-        if(canGrab && LevelManager.playerScript.heldLantern == null)
-        {
-            PickupIndicator();
-        } 
-
         if (!isPlaced)
         {
 
@@ -128,7 +123,7 @@ public class Lantern : InteractObject, IInteractable
             }
             else
             {
-                if (!onStand && canGrab &&  LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0)
+                if (!onStand && canGrab &&  LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
                 {
                     this.GetComponent<BoxCollider2D>().enabled = false;
                     isPlaced = false;

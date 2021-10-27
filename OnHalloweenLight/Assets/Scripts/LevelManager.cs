@@ -52,26 +52,45 @@ public class LevelManager : MonoBehaviour
 
         playerScript.touchingStand = false;
 
+        bool indicatorPlaced = false;
 
+        //If the player is touching an NPC nothing else will run
         if(!playerScript.touchingNPC)
         {
-            roomStands[0].RemoveIndicator();
-        }
 
-
-        for (int i = 0; i < roomStands.Count; i++)
-        {
-
-            roomStands[i].canGrab = roomStands[i].PickUpCollision(LevelManager.player);
-            if(roomStands[i].canGrab)
+            for (int i = 0; i < roomStands.Count; i++)
             {
-                if(playerScript.heldLantern != null && roomStands[i].currentLantern == null)
+
+                roomStands[i].canGrab = roomStands[i].PickUpCollision(LevelManager.player);
+                if (roomStands[i].canGrab)
                 {
-                    roomStands[i].PickupIndicator();
+                    if (playerScript.heldLantern != null && roomStands[i].currentLantern == null)
+                    {
+                        roomStands[i].PickupIndicator();
+                        indicatorPlaced = true;
+                    }
+                    playerScript.touchingStand = true;
+
                 }
-                playerScript.touchingStand = true;
-                
+            }
+
+            if(!indicatorPlaced)
+            {
+                for (int i = 0; i < roomLanterns.Count; i++)
+                {
+                    if (roomLanterns[i].canGrab && playerScript.heldLantern == null)
+                    {
+                        roomLanterns[i].PickupIndicator();
+                        indicatorPlaced = true;
+                    }
+                }   
+            }
+
+            if(!indicatorPlaced)
+            {
+                roomStands[0].RemoveIndicator();
             }
         }
+
     }
 }

@@ -64,7 +64,7 @@ public class LanternStand : InteractObject, IInteractable
             if (!hasLantern)
             {
                 //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand
-                if(LevelManager.playerScript.heldLantern !=null && canGrab && LevelManager.playerScript.frameCooldown == 0)
+                if(LevelManager.playerScript.heldLantern !=null && canGrab && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
                 {
 
                     //set the current lantern to the players one and remove the lantern from the player
@@ -92,7 +92,7 @@ public class LanternStand : InteractObject, IInteractable
             {
 
                 //checks if the player is close enough to the stand and they have nothing in their hand
-                if (canGrab && LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0)
+                if (canGrab && LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
                 {
 
                     //removes lantern from stand and puts it in player hand
@@ -124,13 +124,13 @@ public class LanternStand : InteractObject, IInteractable
     {
         // get extents of player +/- some number that I change all the time
         float playerMinX = player.transform.position.x - player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
-        playerMinX -= .5f;
+        playerMinX -= .6f;
         float playerMaxX = player.transform.position.x + player.GetComponent<BoxCollider2D>().size.x + player.GetComponent<BoxCollider2D>().offset.x;
-        playerMaxX += .5f;
+        playerMaxX += .6f;
         float playerMinY = player.transform.position.y - player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
-        playerMinY -= .5f;
+        playerMinY -= .6f;
         float playerMaxY = player.transform.position.y + player.GetComponent<BoxCollider2D>().size.y + player.GetComponent<BoxCollider2D>().offset.y;
-        playerMaxY += .5f;
+        playerMaxY += .6f;
 
         // get horizontal extents of lantern
         //Should technically account for offsets but whatever
