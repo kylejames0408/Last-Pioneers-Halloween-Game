@@ -61,7 +61,7 @@ public class QuestManager : MonoBehaviour
     {
         for(int i = 0; i < Quests.Length / 2; i++)
         {
-            Debug.Log(Quests.Length);
+            //Debug.Log(Quests.Length);
             if (Quests[i, 0].ToLower() == name)
             {
                 if(status.ToLower() == "true" || status.ToLower() == "false")
@@ -73,7 +73,7 @@ public class QuestManager : MonoBehaviour
                 }
             } else
             {
-                Debug.Log("Quest status not updated. Please input a proper quest name.");
+                //Debug.Log("Quest status not updated. Please input a proper quest name.");
             }
         }
     }
