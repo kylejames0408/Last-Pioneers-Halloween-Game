@@ -9250,7 +9250,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -39784,11 +39784,11 @@ Tilemap:
   - m_RefCount: 13
     m_Data: {fileID: 3318645207964342073, guid: 6d500a7e8105ccd40818a42179378fc4,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 2974825409997541347, guid: 1149f904ceabf9f4694b6c0637fafb5b,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 16
     m_Data: {fileID: -7459879455054960601, guid: 6d500a7e8105ccd40818a42179378fc4,
       type: 3}
@@ -46137,7 +46137,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544957995}
   m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellSize: {x: 0.999, y: 0.999, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
