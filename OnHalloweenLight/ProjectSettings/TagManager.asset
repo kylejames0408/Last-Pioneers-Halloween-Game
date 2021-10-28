@@ -63,11 +63,11 @@ TagManager:
   - name: Objects
     uniqueID: 1002041163
     locked: 0
-  - name: NPC
-    uniqueID: 3574867159
-    locked: 0
   - name: Player
     uniqueID: 2412967271
+    locked: 0
+  - name: NPC
+    uniqueID: 3574867159
     locked: 0
   - name: Foreground
     uniqueID: 973437133
