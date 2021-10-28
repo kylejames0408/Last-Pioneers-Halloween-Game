@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 65b763dd851b5e343956ece2019b9f62
+guid: fdb92b98e28d6b54cb2a481ac35321c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -397886363924876212
-    second: ttilewater2_0
+      213: 7442288238016423849
+    second: tilewater2_0
   - first:
-      213: -2149329454730254657
-    second: ttilewater2_1
+      213: -3842006296252954533
+    second: tilewater2_1
   - first:
-      213: -948048637471400422
-    second: ttilewater2_2
+      213: -900600107086336734
+    second: tilewater2_2
   - first:
-      213: -424608324120554495
-    second: ttilewater2_3
+      213: 7669519320830850125
+    second: tilewater2_3
   - first:
-      213: 4181530725805471566
-    second: ttilewater2_4
+      213: -5710642384411078206
+    second: tilewater2_4
   - first:
-      213: -8783198845957923133
-    second: ttilewater2_5
+      213: 3038316953660077538
+    second: tilewater2_5
   - first:
-      213: -8398539672434674990
-    second: ttilewater2_6
+      213: 7779785681917124327
+    second: tilewater2_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -108,7 +108,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ttilewater2_0
+      name: tilewater2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,14 +122,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c443949c57c6a7af0800000000000000
-      internalID: -397886363924876212
+      spriteID: 9a76907b8b1584760800000000000000
+      internalID: 7442288238016423849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ttilewater2_1
+      name: tilewater2_1
       rect:
         serializedVersion: 2
         x: 1000
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb6e481af3c0c22e0800000000000000
-      internalID: -2149329454730254657
+      spriteID: b58470f11a37eaac0800000000000000
+      internalID: -3842006296252954533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ttilewater2_2
+      name: tilewater2_2
       rect:
         serializedVersion: 2
         x: 2000
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1e59b589cad7d2f0800000000000000
-      internalID: -948048637471400422
+      spriteID: 22da07469fc6083f0800000000000000
+      internalID: -900600107086336734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ttilewater2_3
+      name: tilewater2_3
       rect:
         serializedVersion: 2
         x: 2000
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 104de189afc7b1af0800000000000000
-      internalID: -424608324120554495
+      spriteID: d443e1cff2b9f6a60800000000000000
+      internalID: 7669519320830850125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ttilewater2_4
+      name: tilewater2_4
       rect:
         serializedVersion: 2
         x: 0
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4734095a08c70a30800000000000000
-      internalID: 4181530725805471566
+      spriteID: 2c153e5f109bfb0b0800000000000000
+      internalID: -5710642384411078206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ttilewater2_5
+      name: tilewater2_5
       rect:
         serializedVersion: 2
         x: 1000
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ce9e0b5f2fcb1680800000000000000
-      internalID: -8783198845957923133
+      spriteID: 2e5b4f1fb254a2a20800000000000000
+      internalID: 3038316953660077538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ttilewater2_6
+      name: tilewater2_6
       rect:
         serializedVersion: 2
         x: 2000
@@ -248,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d271805aa4627b80800000000000000
-      internalID: -8398539672434674990
+      spriteID: 7ee175fcbd957fb60800000000000000
+      internalID: 7779785681917124327
       vertices: []
       indices: 
       edges: []

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ttilewater2_4
+  m_Name: tilewater2_4
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 4181530725805471566, guid: 65b763dd851b5e343956ece2019b9f62,
+  m_Sprite: {fileID: -5710642384411078206, guid: fdb92b98e28d6b54cb2a481ac35321c9,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
