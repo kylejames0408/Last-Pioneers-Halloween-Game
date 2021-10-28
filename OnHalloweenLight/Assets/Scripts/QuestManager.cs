@@ -37,7 +37,7 @@ public class QuestManager : MonoBehaviour
 
     public string GetQuestStatus(string name)
     {
-        for (int i = 0; i < Quests.Length; i++)
+        for (int i = 0; i < Quests.Length / 2; i++)
         {
             if (Quests[i, 0].ToLower() == name)
             {
@@ -49,7 +49,7 @@ public class QuestManager : MonoBehaviour
 
     public string GetQuestName(int num)
     {
-        if (num < Quests.Length && num >= 0)
+        if (num < 3 && num >= 0)
         {
             //Debug.Log("Printing quest " + num);
             return Quests[num, 0];
@@ -59,8 +59,9 @@ public class QuestManager : MonoBehaviour
 
     public void UpdateQuest(string name, string status)
     {
-        for(int i = 0; i < Quests.Length; i++)
+        for(int i = 0; i < Quests.Length / 2; i++)
         {
+            Debug.Log(Quests.Length);
             if (Quests[i, 0].ToLower() == name)
             {
                 if(status.ToLower() == "true" || status.ToLower() == "false")
