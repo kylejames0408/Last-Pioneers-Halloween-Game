@@ -129,6 +129,40 @@ public class PlayerScript : CharacterScript
         transform.localScale = playerScale;
     }
 
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.tag == "Pumpkin")
+    //    {
+    //        other.gameObject.GetComponent<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(other.transform.position.y * -10f) + 14;
+    //    }
+    //}
+
+    //private void OnTriggerStay2D(Collider2D other)
+    //{
+    //    if (other.tag == "Pumpkin")
+    //    {
+    //        //if (other.transform.position.y < this.transform.position.y - 1.0f)
+    //        //{
+    //        //    Debug.Log("Foreground");
+    //        //    other.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
+    //        //} else
+    //        //{
+    //        //    Debug.Log("Background");
+    //        //    other.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
+    //        //}
+
+    //        if (other.gameObject.GetComponent<SpriteRenderer>().sortingOrder - 10.0f > sprite.sortingOrder)
+    //        {
+    //            Debug.Log("Foreground");
+    //            other.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
+    //        }
+    //        else
+    //        {
+    //            Debug.Log("Background");
+    //            other.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
+    //        }
+    //    }
+    //}
 
     /*
     /// <summary>

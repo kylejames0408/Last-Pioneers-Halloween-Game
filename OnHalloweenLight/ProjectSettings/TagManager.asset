@@ -13,6 +13,7 @@ TagManager:
   - TextBox
   - PauseMenu
   - DialogIndicator
+  - Pumpkin
   layers:
   - Default
   - TransparentFX
