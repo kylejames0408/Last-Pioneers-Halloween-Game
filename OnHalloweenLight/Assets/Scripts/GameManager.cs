@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { Menu, Game ,Pause,Talking};
+/// <summary>
+/// Enumeration for various game states.
+/// </summary>
+public enum GameState { Menu, Game, Pause, Talking };
 
+/// <summary>
+/// Manages various game tasks.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     // Fields
     [SerializeField] public static GameState gameState;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Set the initial game state.
+    /// </summary>
     void Start()
     {
         // Set the gameState to be the menu
         gameState = GameState.Game;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Perform various operations dependent on game state.
+    /// </summary>
     void Update()
     {
         // State Machine
@@ -26,42 +36,38 @@ public class GameManager : MonoBehaviour
             case GameState.Menu:
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    gameState = GameState.Game; // start the game
+                    // Start the game
+                    gameState = GameState.Game;
                     SceneManager.LoadScene(sceneName: "2Room");
                 }
                 break;
             case GameState.Game:
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
+                    // Pause the game
                     LevelManager.pauseMenu.SetActive(true);
-                    gameState = GameState.Pause; // escape to menu (for now)
-                   
+                    gameState = GameState.Pause;
                 }
                 break;
-
             case GameState.Pause:
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
+                    // Unpause the game
                     LevelManager.pauseMenu.SetActive(false);
                     gameState = GameState.Game;
-
-
-
                 }
                 if (Input.GetKeyDown(KeyCode.R))
                 {
+                    // Return to the menu
                     SceneManager.LoadScene(sceneName: "Menu");
-
-                }
-                if (Input.GetKeyDown(KeyCode.KeypadEnter))
-                {
-                    Application.Quit();
-
                 }
                 break;
         }
     }
 
+    /// <summary>
+    /// Keeps the game manager persistant.
+    /// </summary>
     void Awake()
     {
        // DontDestroyOnLoad(this.gameObject);

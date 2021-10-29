@@ -3,35 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Lantern class.
+/// </summary>
 public class Lantern : InteractObject, IInteractable
 {
+    // Fields
     Vector2 playerHandPos;
-
     List<GameObject> touchingList;
-
-    /// <summary>
-    /// isPlaced - If it's on the ground at that moment or not.
-    /// canGrab - If the player is in touching grabbable range. 
-    /// </summary>
-    public bool isPlaced = true;
-    public bool canGrab = false;
+    public bool isPlaced = true; // if lantern is on the ground
+    public bool canGrab = false; // if the player is in grabbable range
     public bool onStand = false;
-
     private Text indicatorText;
 
-    //SpriteRenderer sprite;
-
     /// <summary>
-    /// Start by grabbing the player gameObject
-    /// Set the handPos to the value
-    /// 
-    /// Disable the collider2D for the lantern so it doesn't push the player.
+    /// Initialize fields and update the level manager.
     /// </summary>
     void Start()
     {
-        //saves references to both base player object and the script attached to it
-        // playerScript = player.GetComponent<PlayerScript>();
-
+        // Initialize fields
         canGrab = false;
         touchingList = new List<GameObject>();
 
@@ -39,28 +29,24 @@ public class Lantern : InteractObject, IInteractable
         base.isLantern = true;
         base.sprite = GetComponent<SpriteRenderer>();
 
-        LevelManager.roomLanterns.Add(this);
-        LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("isPickUpDropOff", false);
-
         sprite = GetComponent<SpriteRenderer>();
 
         indicatorText = GameObject.Find("IndicatorCanvas/IndicatorText").GetComponent<Text>();
+
+        // Update LevelManager
+        LevelManager.roomLanterns.Add(this);
+        LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("isPickUpDropOff", false);
     }
 
     /// <summary>
-    /// FixedUpdate is called once per FPS frame which is locked at 60.
+    /// Update the lantern's position; called once per FPS frame which is locked at 60.
     /// </summary>
     void FixedUpdate()
     {
-        //smooth transition looks bad
-        //transform.position = Vector2.MoveTowards(transform.position, 
-        //    playerHand.transform.position, 
-        //    player.GetComponent<PlayerScript>().moveSpeed * Time.deltaTime);
-
-        //If the lantern is not placed it follows the player
+        //If the lantern is not placed
         if (!isPlaced)
         {
-
+            // Follow the player's hand
             playerHandPos.x = LevelManager.playerHand.transform.position.x;
             playerHandPos.y = LevelManager.playerHand.transform.position.y - 0.7f;
 
