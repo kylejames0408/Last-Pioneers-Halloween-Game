@@ -23,7 +23,7 @@ public class MovingWall :  LanternTrigger
         if(base.checkStands())
         {
             Disable();
-            if (questUpdate);
+            if (questUpdate && LevelManager.questManager.GetQuestStatus("light houses")=="false")
             {
                 LevelManager.questManager.UpdateQuest("light houses", "true");
             }
