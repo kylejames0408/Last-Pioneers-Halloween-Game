@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     public static GameObject arrowDialogue;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,13 +52,13 @@ public class LevelManager : MonoBehaviour
     {
 
         playerScript.touchingStand = false;
-
         bool indicatorPlaced = false;
 
         //If the player is touching an NPC nothing else will run
         if(!playerScript.touchingNPC)
         {
 
+            //This loops through every lantern stand and checks if the arrow indicator should be on it
             for (int i = 0; i < roomStands.Count; i++)
             {
 
@@ -74,8 +75,10 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
+            //If the indicator was already placed then there is no need to continue
             if(!indicatorPlaced)
             {
+                //This loops through every lantern and checks if the arrow indicator should be on it
                 for (int i = 0; i < roomLanterns.Count; i++)
                 {
                     if (roomLanterns[i].canGrab && playerScript.heldLantern == null)
@@ -86,6 +89,7 @@ public class LevelManager : MonoBehaviour
                 }   
             }
 
+            //If the indicator was not placed it gets removed
             if(!indicatorPlaced)
             {
                 roomStands[0].RemoveIndicator();

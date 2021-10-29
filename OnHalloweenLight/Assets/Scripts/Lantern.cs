@@ -57,6 +57,7 @@ public class Lantern : InteractObject, IInteractable
         //    playerHand.transform.position, 
         //    player.GetComponent<PlayerScript>().moveSpeed * Time.deltaTime);
 
+        //If the lantern is not placed it follows the player
         if (!isPlaced)
         {
 
@@ -77,6 +78,7 @@ public class Lantern : InteractObject, IInteractable
     {
         canGrab = PickUpCollision(LevelManager.player);
 
+        //If the lantern is not placed it follows the player
         if (!isPlaced)
         {
 
@@ -103,7 +105,7 @@ public class Lantern : InteractObject, IInteractable
     {
         if (Input.GetKeyDown("space"))
         {
-            //checks to make sure lantern is not placed, or the player is not close enough to a stand to place it on that
+            //checks to make sure lantern is not placed, or the player is not close enough to a stand to place it on that, and the player has not acted recently, and they are not touching an NPC
             if (!isPlaced && !LevelManager.playerScript.touchingStand && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
             {
                 isPlaced = true;
@@ -123,6 +125,7 @@ public class Lantern : InteractObject, IInteractable
             }
             else
             {
+                //If the lantern is not on a stand and they are in range of the player and the player has not acted recently, and they are not touching an NPC
                 if (!onStand && canGrab &&  LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
                 {
                     this.GetComponent<BoxCollider2D>().enabled = false;
@@ -229,6 +232,9 @@ public class Lantern : InteractObject, IInteractable
         return true; // the only remaining alternative is that they are colliding
     }
 
+    /// <summary>
+    /// This is a method for it something is in range of the lantern
+    /// </summary>
     public void LightTouching()
     {
         GameObject[] touching = GameObject.FindGameObjectsWithTag("NPC");
@@ -275,6 +281,9 @@ public class Lantern : InteractObject, IInteractable
         }
     }
 
+    /// <summary>
+    /// Places the arrow indicator
+    /// </summary>
     public void PickupIndicator()
     {
         LevelManager.arrowDialogue.transform.position = new Vector3(this.transform.position.x,
@@ -285,9 +294,4 @@ public class Lantern : InteractObject, IInteractable
         indicatorText.text = "Press SPACE to pick up Lantern";
     }
 
-    public void RemoveIndicator()
-    {
-        LevelManager.arrowDialogue.SetActive(false);
-        indicatorText.text = "";
-    }
 }

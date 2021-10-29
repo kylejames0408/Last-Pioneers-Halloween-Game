@@ -61,9 +61,10 @@ public class LanternStand : InteractObject, IInteractable
         {
             //Debug.Log(canGrab);
 
+            //If there is no lantern on the stand
             if (!hasLantern)
             {
-                //checks if the player is holding a lantern, is close enough, and there is no lantern on the stand
+                //checks if the player is holding a lantern, is close enough, has not acted recently, and is not touching an NPC
                 if(LevelManager.playerScript.heldLantern !=null && canGrab && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
                 {
 
@@ -91,7 +92,7 @@ public class LanternStand : InteractObject, IInteractable
             else
             {
 
-                //checks if the player is close enough to the stand and they have nothing in their hand
+                //checks if the player is close enough to the stand and they have nothing in their hand, and they haven't acted recently, and they're not touching an NPC
                 if (canGrab && LevelManager.playerScript.heldLantern == null && LevelManager.playerScript.frameCooldown == 0 && !LevelManager.playerScript.touchingNPC)
                 {
 
@@ -106,7 +107,7 @@ public class LanternStand : InteractObject, IInteractable
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("pickingUp", true);
                     LevelManager.player.GetComponent<PlayerScript>().animationRef.SetBool("droppingOff", false);
 
-                    print("latern picked up from stand");
+                    //print("latern picked up from stand");
                     indicatorText.text = "Press SPACE to drop Lantern";
 
                     LevelManager.playerScript.frameCooldown = 5;
@@ -200,6 +201,9 @@ public class LanternStand : InteractObject, IInteractable
         return true; // the only remaining alternative is that they are colliding
     }
 
+    /// <summary>
+    /// This places the pickup indicator on the stand
+    /// </summary>
     public void PickupIndicator()
     {
         LevelManager.arrowDialogue.transform.position = new Vector3(this.transform.position.x,
@@ -210,6 +214,9 @@ public class LanternStand : InteractObject, IInteractable
         indicatorText.text = "Press SPACE to place Lantern";
     }
 
+    /// <summary>
+    /// This removes the indicator
+    /// </summary>
     public void RemoveIndicator()
     {
         LevelManager.arrowDialogue.SetActive(false);

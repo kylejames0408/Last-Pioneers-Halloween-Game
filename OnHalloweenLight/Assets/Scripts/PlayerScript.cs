@@ -61,7 +61,7 @@ public class PlayerScript : CharacterScript
             case GameState.Game:
 
 
-
+                //This is for the player movement
                 mov.x = Input.GetAxisRaw("Horizontal");
                 mov.y = Input.GetAxisRaw("Vertical");
 
@@ -112,6 +112,7 @@ public class PlayerScript : CharacterScript
             //Debug.Log("is walking");
         }
 
+        //This is the player moving left
         if (mov.x < 0)
         {
             playerScale.x = -1;
@@ -119,6 +120,7 @@ public class PlayerScript : CharacterScript
             //Debug.Log("Left");
         }
         
+        //Moving right
         if (mov.x > 0)
         {
             playerScale.x = 1;
