@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -45505,8 +45505,8 @@ Tilemap:
   - first: {x: 12, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 5
-      m_TileSpriteIndex: 5
+      m_TileIndex: 9
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -56233,7 +56233,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: e76e16054a5d0f04c819ac9b9c4bda0b, type: 2}
   - m_RefCount: 11
     m_Data: {fileID: 11400000, guid: 6185e568f1567e8448938e7dda58dc86, type: 2}
-  - m_RefCount: 182
+  - m_RefCount: 181
     m_Data: {fileID: 11400000, guid: 5f37406d38bdb704897796d99b8f17b5, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 2f5b737d135de4b468e2707fe59d9905, type: 2}
@@ -56241,7 +56241,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 4c4b8153c4d62114fbc74ac0d660a237, type: 2}
   - m_RefCount: 11
     m_Data: {fileID: 11400000, guid: ac29a0b551023c3479d5e603a51acb5c, type: 2}
-  - m_RefCount: 34
+  - m_RefCount: 35
     m_Data: {fileID: 11400000, guid: 506ff4e24e0320641905890b9a2baf97, type: 2}
   - m_RefCount: 171
     m_Data: {fileID: 11400000, guid: 5f9fa3ad2eff58348aead1f781d25de3, type: 2}
@@ -56335,7 +56335,7 @@ Tilemap:
   - m_RefCount: 11
     m_Data: {fileID: -959158182612899092, guid: 1149f904ceabf9f4694b6c0637fafb5b,
       type: 3}
-  - m_RefCount: 182
+  - m_RefCount: 181
     m_Data: {fileID: -5295869492396805120, guid: 1149f904ceabf9f4694b6c0637fafb5b,
       type: 3}
   - m_RefCount: 5
@@ -56347,7 +56347,7 @@ Tilemap:
   - m_RefCount: 11
     m_Data: {fileID: -6533523206033981812, guid: 1149f904ceabf9f4694b6c0637fafb5b,
       type: 3}
-  - m_RefCount: 34
+  - m_RefCount: 35
     m_Data: {fileID: 5746406986000200486, guid: 1149f904ceabf9f4694b6c0637fafb5b,
       type: 3}
   - m_RefCount: 171
