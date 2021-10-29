@@ -25,6 +25,13 @@ public class MovingWall :  LanternTrigger
             Disable();
             if (questUpdate && LevelManager.questManager.GetQuestStatus("light houses")=="false")
             {
+                foreach(NPC npc in LevelManager.npcs)
+                {
+                    if(npc.name == "Perry the Pumpkin")
+                    {
+                        npc.enabled = false;
+                    }
+                }
                 LevelManager.questManager.UpdateQuest("light houses", "true");
             }
         }
