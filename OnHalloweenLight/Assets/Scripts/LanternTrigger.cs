@@ -8,6 +8,7 @@ public class LanternTrigger : MonoBehaviour
     [SerializeField] protected LanternStand triggerStand2 = null;
     [SerializeField] protected LanternStand triggerStand3 = null;
     [SerializeField] protected LanternStand triggerStand4 = null;
+    [SerializeField] protected bool questUpdate = false;
 
 
     /// <summary>
