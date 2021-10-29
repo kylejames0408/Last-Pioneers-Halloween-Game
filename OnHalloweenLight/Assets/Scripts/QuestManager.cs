@@ -16,7 +16,7 @@ public class QuestManager : MonoBehaviour
         Quests[1, 0] = "light houses";
         Quests[1, 1] = "false";
 
-        Quests[2, 0] = "annoucement at midnight";
+        Quests[2, 0] = "announcement at midnight";
         Quests[2, 1] = "false";
     }
 
