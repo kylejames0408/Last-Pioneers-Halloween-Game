@@ -13,7 +13,7 @@ public class QuestManager : MonoBehaviour
         Quests[0, 0] = "pumpkin patch";
         Quests[0, 1] = "false";
 
-        Quests[1, 0] = "candy stock";
+        Quests[1, 0] = "light houses";
         Quests[1, 1] = "false";
 
         Quests[2, 0] = "annoucement at midnight";

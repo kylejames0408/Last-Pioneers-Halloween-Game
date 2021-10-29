@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingWall :  LanternTrigger
 {
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,10 @@ public class MovingWall :  LanternTrigger
         if(base.checkStands())
         {
             Disable();
+            if (questUpdate && LevelManager.questManager.GetQuestStatus("light houses")=="false")
+            {
+                LevelManager.questManager.UpdateQuest("light houses", "true");
+            }
         }
         else
         {

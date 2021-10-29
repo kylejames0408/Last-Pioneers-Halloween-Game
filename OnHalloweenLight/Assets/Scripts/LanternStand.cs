@@ -16,6 +16,7 @@ public class LanternStand : InteractObject, IInteractable
     public bool hasLantern = false;
     public bool canGrab = false;
 
+
     private Text indicatorText;
 
     /// <summary>
