@@ -3218,6 +3218,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Perry the Pumpkin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6744359530011370325, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744359530011370325, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 19.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913133012583842976, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a0cb1a68c39c2b40906c6a6b1da5b18,
+        type: 3}
+    - target: {fileID: 8913133012583842976, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1002041163
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913133012583842976, guid: 282ce5dbd8e91ba409cfc39a00e22982,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282ce5dbd8e91ba409cfc39a00e22982, type: 3}
 --- !u!4 &429658589 stripped
