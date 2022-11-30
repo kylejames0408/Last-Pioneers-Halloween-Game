@@ -1318,6 +1318,12 @@ PrefabInstance:
       propertyPath: dialogue.sentances.Array.data[0]
       value: Mmmm... you're here to light up my house?
       objectReference: {fileID: 0}
+    - target: {fileID: 2933157909022264717, guid: 9d9970961e7d3f14296c008f2e172a06,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[0]
+      value: Make sure you find the lantern nearby... last I remember, I put it near
+        the trash cans.
+      objectReference: {fileID: 0}
     - target: {fileID: 3360523968804019359, guid: 9d9970961e7d3f14296c008f2e172a06,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -1748,6 +1754,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2134154280}
     m_Modifications:
+    - target: {fileID: 1985934623737253995, guid: 432f966c1b8cc5143954730abf68dd6e,
+        type: 3}
+      propertyPath: dialogue.sentances.Array.data[1]
+      value: Are you here to help? They might be scared of your lantern if you're
+        holding it, they don't tend to like bright lights.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985934623737253995, guid: 432f966c1b8cc5143954730abf68dd6e,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[0]
+      value: Are you here to help? They might be scared of your lantern if you're
+        holding it, they don't tend to like bright lights.
+      objectReference: {fileID: 0}
     - target: {fileID: 3863782585450333135, guid: 432f966c1b8cc5143954730abf68dd6e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3093,7 +3111,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.sentancesSpokenTo.Array.data[0]
       value: Hey! It's me! Perry the Pumpkin! Thanks to you, I've been filled with
-        the spirit of Halloween. Now lets get this years party started!
+        the spirit of Halloween. Now lets get this party started!
       objectReference: {fileID: 0}
     - target: {fileID: -6064254949016860193, guid: 282ce5dbd8e91ba409cfc39a00e22982,
         type: 3}
@@ -57852,6 +57870,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2134154280}
     m_Modifications:
+    - target: {fileID: 749573019952923847, guid: 997e8b25789d51f4d8a3b8c92c4c17c3,
+        type: 3}
+      propertyPath: dialogue.sentances.Array.data[0]
+      value: Perry sent you? O-oh I love decorating! I would help you, but I think
+        you got it covered
+      objectReference: {fileID: 0}
+    - target: {fileID: 749573019952923847, guid: 997e8b25789d51f4d8a3b8c92c4c17c3,
+        type: 3}
+      propertyPath: dialogue.sentancesSpokenTo.Array.data[0]
+      value: Did you happen to find my bone in the dog house while looking for the
+        lantern?
+      objectReference: {fileID: 0}
     - target: {fileID: 2627455100886144867, guid: 997e8b25789d51f4d8a3b8c92c4c17c3,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -136,24 +136,24 @@ public class DialogueManager : MonoBehaviour
             if (nameText.text == "Perry the Pumpkin" && sentance == "candy")
             {
                 // Temporary Field
-                string stringstat = "looking pretty empty..."; ;
+                string stringstat = "looking pretty dark..."; ;
 
                 // If candy quest is completed
                 if (LevelManager.questManager.GetQuestStatus(LevelManager.questManager.GetQuestName(1)) == "true")
                 {
                     // Change the status
-                    stringstat = "overflowing with candy!";
+                    stringstat = "brilliantly lit!";
                 }
 
                 // Set the sentence
-                sentance = "The " + LevelManager.questManager.GetQuestName(1) + " is " + stringstat;
+                sentance = "The  houses are " + stringstat;
             }
 
             // If talking to Perry and using sentence "midnight"
             if (nameText.text == "Perry the Pumpkin" && sentance == "midnight")
             {
                 // Temporary Field
-                string stringstat = " happens at midnight, and when we're ready."; ;
+                string stringstat = " happens when you've finished getting ready!"; ;
 
                 // If quests are completed
                 if (LevelManager.questManager.GetQuestStatus(LevelManager.questManager.GetQuestName(2)) == "true")
